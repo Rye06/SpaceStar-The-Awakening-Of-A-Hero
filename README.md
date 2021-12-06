@@ -1,2 +1,2 @@
 # SpaceStar
-SpaceStar Game
+Developer: Shaurya (Rye)
