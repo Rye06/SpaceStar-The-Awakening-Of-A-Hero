@@ -17,13 +17,6 @@ int backgroundY; // y axis of the background image
 
 String chapters; // screens of the game
 
-
-/** WORK ON
- * Alert Edge of Screen Text
- * Implement Player's Spaceship Class
- * Fix Extreme Left Collision Extra Bump
- **/
-
 void setup() {
 
   /*******************
@@ -162,5 +155,5 @@ void mousePressed() {
 
   Bullet bullet = new Bullet(); // bullet object is created
 
-  bullet.fire();
+  bullet.fire(); // fires the bullet, making sure its only in the play screen
 }
