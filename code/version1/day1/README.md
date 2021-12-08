@@ -1,4 +1,4 @@
-# Day 1 of my Project
+## Day 1 of my Project
 
 # What did I do?
 
