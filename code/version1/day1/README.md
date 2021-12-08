@@ -1,6 +1,6 @@
-## Day 1 of my Project
+# Day 1 of my Project
 
-# What did I do?
+What did I do?
 
 The first day, I completed-
 
@@ -12,6 +12,6 @@ Play Screen:
 
 . Background Stars 
 
-# What am I working on? 
+What am I working on? 
 
 Currently, I am working on the bullet being fired from the player's spaceship through the "Bullet" class! Then, developing the enemy spaceship and its spawning.
