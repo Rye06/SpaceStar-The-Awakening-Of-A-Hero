@@ -5,6 +5,7 @@
 The first day, I completed-
 
 Play Screen:
+
 . User's control on the spaceship
 
 . Current Chapter Display
