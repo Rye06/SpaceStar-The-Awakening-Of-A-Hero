@@ -7,6 +7,7 @@
 /** Images in the Game **/
 PImage playerSpaceship; // player's spaceship
 PImage backgroundPic; // background image
+PImage bulletPic; // bullet inage
 
 /** X and Y Coordinates of the Player Spaceship **/
 int playerSpaceshipX;
@@ -15,12 +16,13 @@ int playerSpaceshipY;
 /** Y Coordinates of the Background **/
 int backgroundY; // y axis of the background image
 
-// Chapters of the Game
-String chapters; // screens of the game
+/** Screens and Chapters of the Game **/
+String screens; // screens of the game
+String chapters; // chapters of the game
 
-// Bullet 
-boolean checkBullet = false; // checks to create a bullet object or not
-Bullet bullet = new Bullet(); // bullet object is created
+/** Bullet Variables **/
+boolean checkBullet = false; // checks if bullet object is to be created or not
+Bullet bullet = new Bullet(); // bullet object
 
 void setup() {
 
@@ -46,7 +48,12 @@ void setup() {
   backgroundPic = loadImage("background.png"); // loads the background image
   backgroundY = 0; // y coordinate of the background
 
-  chapters = "Home"; // sets the game state to the home screen
+  /** Bullet Images **/
+
+  bulletPic = loadImage("bullet.png"); // loads the bullets image
+  bulletPic.resize(10, 40); // resizes the bullet image
+
+  screens = "Home"; // sets the game state to the home screen
 }
 
 void draw() {
@@ -57,16 +64,17 @@ void draw() {
 
   backgroundStars(); // calls the background game screen function
 
-  /** Current Chapter Display **/
-
-  textSize(20);
-  text("Current Chapter: " + chapters, 5, 25);
-
-  if (chapters == "Home") {
+  if (screens == "Home") {
     home();
   } // home screen ends
-  else if (chapters == "Play") {
-    playScreen(); // calls game screen function
+  else if (screens == "Play") {
+
+    playScreen(); // calls play screen function
+
+    /** Current Chapter Display **/
+
+    textSize(20);
+    text("Current Chapter: " + chapters, 5, 25);
 
     if (mousePressed) {
       checkBullet = true; // bullet is to be created
@@ -74,7 +82,6 @@ void draw() {
 
     if (checkBullet) {
       createBullet(); // calls to create a new bullet
-      checkBullet = false; // sets check for new bullet to false
     }
   } // play screen ends
 }
@@ -103,7 +110,7 @@ void home() {
    ***************************************/
 
   if (mousePressed) {
-    chapters = "Play";
+    screens = "Play";
   }
 }
 
@@ -114,6 +121,7 @@ void playScreen() {
    ***************************************/
 
   image(playerSpaceship, playerSpaceshipX, playerSpaceshipY); // draws the player's spaceship
+  chapters = "The Start"; // the first chapter
 }
 
 void keyPressed() {
@@ -167,8 +175,8 @@ void keyPressed() {
 void createBullet() {
 
   /****************************************
-   Performs Action Based on a Mouse Click
+   Creates a Bullet
    ***************************************/
 
-  bullet.newBullet(); // creates the bullet
+  bullet.newBullet(); // creates a new bullet
 }
