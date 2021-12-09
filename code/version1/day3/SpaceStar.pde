@@ -24,7 +24,7 @@ String chapters; // chapters of the game
 /** Bullet Variables **/
 int bulletX; // x position of the bullet
 int bulletY; // y position of the bullet
-Bullet bullet = new Bullet(bulletX, bulletY); // bullet object
+Bullet bullet = new Bullet(); // bullet object
 PImage bulletPic; // bullet image
 
 void setup() {
@@ -77,11 +77,14 @@ void draw() {
     initalBulletPos(); // sets initial bullet position
     moveBullet(); // moves the bullet
 
+    /*
     if (mousePressed) {
-      bulletSpaceshipX(); // places the bullet at spaceship's x coordinate
-    } // works only on mouse press
+     bulletSpaceshipX(); // places the bullet at spaceship's x coordinate
+     } // works only on mouse press
+     */
 
     image(bulletPic, bulletX, bulletY); // places bullet image on screen
+    print(bulletY + " ");
 
     /** Current Chapter Display **/
     textSize(20);
@@ -181,7 +184,11 @@ void initalBulletPos() {
    Initial Bullet Coordinates
    **********************************************/
 
-  bullet.initBulletPos();
+  bullet.initBulletPos(); // calls initial bullet position function
+
+  /** Sets the X and Y Initial Coordinates **/
+  bulletX = bullet.bulletPosX;
+  bulletY = bullet.bulletPosY;
 }
 
 void moveBullet() {
