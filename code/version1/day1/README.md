@@ -19,4 +19,4 @@ Apart from that, I am also developing-
 
 * Alert Message if Edge of Screen is Touched
 * Implement Enemy's Spaceship Class
-* Fix Extreme Left Collision (Extra Increase in X-Coordinate is Seen when key 'D'/'d' is Pressed)
+* Fix Extreme Left Collision (Extra Increase in X-Coordinate is Seen when key 'D'/'d' is Pressed NEEDS TO BE FIXED)
