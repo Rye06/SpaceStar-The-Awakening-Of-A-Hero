@@ -3,11 +3,11 @@
 
 # What did I do?
 
-The first day, I completed-
+The First day, I Completed-
 
 Play Screen:
 
-* User's control on the spaceship
+* User's Control on the Spaceship
 * Current Chapter Display
 * Background Stars 
 
@@ -19,4 +19,4 @@ Apart from that, I am also developing-
 
 * Alert Message if Edge of Screen is Touched
 * Implement Enemy's Spaceship Class
-* Fix Extreme Left Collision Extra Bump
+* Fix Extreme Left Collision (Extra Increase in X-Coordinate is Seen when key 'D'/'d' is Pressed)
