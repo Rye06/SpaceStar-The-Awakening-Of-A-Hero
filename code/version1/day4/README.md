@@ -10,6 +10,7 @@ Play Screen:
 * Bullet Firing from Player's Spaceship / Enemy's Spaceship
 * Collsion Detection with Obstacles
 * Life Left of the Player and Enemy
+* Implemented Enemy's Spaceship Class
 
 Home Screen:
 * Current Level Display
