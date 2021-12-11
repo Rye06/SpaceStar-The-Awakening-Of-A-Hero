@@ -17,5 +17,4 @@ Currently, I am working on the bullet being fired from the player's spaceship th
 
 Apart from that, I am also developing-
 
-* Alert Message if Edge of Screen is Touched
 * Implement Enemy's Spaceship Class
