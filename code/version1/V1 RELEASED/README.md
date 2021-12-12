@@ -8,7 +8,6 @@ Home Screen:
 
 * Created a Play Button for Home Screen
 
-
 Verified all three classes by testing the code
 
 # What am I working on? 
