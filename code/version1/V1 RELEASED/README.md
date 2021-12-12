@@ -6,7 +6,7 @@ The Fifth day, I completed-
 
 Play Screen: 
 
-* Fixed Bullet Bugs
+* Fixed Bugs
 
 Home Screen:
 
