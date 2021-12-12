@@ -8,7 +8,7 @@ Play Screen:
 
 * Enemy Spaceship Moving
 * Bullet Firing from Player's Spaceship / Enemy's Spaceship
-* Collsion Detection with Obstacles
+* Collsion Detection with Bullets
 * Life Left of the Player and Enemy
 * Implemented Enemy's Spaceship Class
 
