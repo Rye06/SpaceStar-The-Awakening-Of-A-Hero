@@ -2,7 +2,7 @@
 
 # What did I do?
 
-The Second day, I completed-
+The Second Day, I completed-
 
 Play Screen:
 
