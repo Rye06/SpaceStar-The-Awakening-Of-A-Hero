@@ -1,6 +1,5 @@
 # Day 1 of My Game
 
-
 # What did I do?
 
 The First day, I Completed-
