@@ -2,7 +2,7 @@
 
 # What did I do?
 
-The Fifth day, I completed-
+The Fifth Day, I completed-
 
 Home Screen:
 
