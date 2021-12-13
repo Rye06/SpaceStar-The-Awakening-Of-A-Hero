@@ -2,7 +2,7 @@
 
 # What did I do?
 
-The Fourth day, I Completed-
+The Fourth Day, I Completed-
 
 Play Screen:
 
