@@ -1,4 +1,4 @@
-# Day 1 of My Game
+# Day 6 of My Game
 
 # What did I do?
 
