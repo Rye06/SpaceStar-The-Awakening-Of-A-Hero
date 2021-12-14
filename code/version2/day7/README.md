@@ -10,7 +10,7 @@ Play Screen:
 
 Home Screen:
 
-* Created a Basic Text Input
+* Created a Basic Text Input for the Name of the User
 
 # What am I working on? 
 
