@@ -1,2 +1,2 @@
-# SpaceStar
+# SpaceStar 🛸 🚀 🌟 🌠
 Developer: Shaurya (Rye)
