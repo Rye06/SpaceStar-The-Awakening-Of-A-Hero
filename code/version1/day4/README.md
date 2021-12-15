@@ -7,7 +7,8 @@ The Fourth Day, I Completed-
 Play Screen:
 
 * Enemy Spaceship Moving
-* Bullet Firing from Player's Spaceship / Enemy's Spaceship
+* Bullet Firing from Player's Spaceship 
+* Laser Firing from Enemy's Spaceship
 * Collsion Detection with Bullets
 * Life Left of the Player and Enemy
 * Implemented Enemy's Spaceship Class
