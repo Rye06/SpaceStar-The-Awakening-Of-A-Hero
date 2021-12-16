@@ -14,4 +14,4 @@ Home Screen:
 
 # What am I working on? 
 
-I am going to be working on the final destination for the game (the planet- Xenoa).
+I am going to be developing 
