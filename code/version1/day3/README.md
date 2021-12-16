@@ -12,7 +12,7 @@ Play Screen:
 Home Screen:
 
 * Home Screen is Designed
-* Home Screen smoothly Switches between the Home and Play Screen
+* Home Screen Smoothly Switches between the Home and Play Screen
 
 # What am I working on? 
 
