@@ -14,4 +14,4 @@ Home Screen:
 
 # What am I working on? 
 
-I am going to be developing 
+I am going to be developing levels in the game and change in the speed for each character on different stages.
