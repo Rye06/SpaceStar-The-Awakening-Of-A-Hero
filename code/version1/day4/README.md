@@ -9,8 +9,8 @@ Play Screen:
 * Enemy Spaceship Moving
 * Bullet Firing from Player's Spaceship
 * Reload the Bullet of the Player's Spaceship
-* Reload the Laser of the Enemy's Spaceship
 * Laser Firing from Enemy's Spaceship
+* Reload the Laser of the Enemy's Spaceship
 * Collsion Detection with Lasers and Bullets
 * Life Left of the Player and Enemy
 * Implemented Enemy's Spaceship Class
