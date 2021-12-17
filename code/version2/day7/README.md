@@ -6,7 +6,7 @@ The Seventh Day, I Completed-
 
 Play Screen:
 
-* I encountered Bugs in my Program, hence, was fixing them
+* I encountered Bugs in my Program, hence, was Fixing Them
 
 Home Screen:
 
