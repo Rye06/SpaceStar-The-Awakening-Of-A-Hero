@@ -221,7 +221,7 @@ void playScreen() {
   else {
     textSize(14);
     text("Player is Dead", width-860, height-50);
-  } // player has dead
+  } // player has died
 
   if ((millis() - enemyCurShootTime > 2000) && (currentEnemyBullet < 5) && (player.playerLifeLeft >= 0)) {
 
