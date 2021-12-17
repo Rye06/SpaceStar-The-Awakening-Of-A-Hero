@@ -8,7 +8,8 @@ Play Screen:
 
 * Asteroids Functioning
 * Main Game Sound
-* Firing Sound
+* Player Bullet Firing Sound
+* Enemy Laser Firing Sound
 * Collision with Bullets and Asteroids Sound
 
 # What am I working on? 
