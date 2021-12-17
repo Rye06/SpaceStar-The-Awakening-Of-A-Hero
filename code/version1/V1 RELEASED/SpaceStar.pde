@@ -318,7 +318,7 @@ void mouseReleased() {
   if (screens == "Play") {
      if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
       playerBullet.playerShootBullet(); // function to shoot the player's bullet
-    } // shoot only if life left is greater than 0
+    } // shoot only if player and enemy life left are greater than 0
   }
 }
 // ---------------------------------------------------------------------------------------------
