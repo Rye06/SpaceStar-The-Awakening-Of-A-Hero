@@ -6,6 +6,7 @@ The Sixth Day, I Completed-
 
 Play Screen:
 
+* Asteroids Functioning
 * Main Game Sound
 * Firing Sound
 * Collision with Bullets and Asteroids Sound
