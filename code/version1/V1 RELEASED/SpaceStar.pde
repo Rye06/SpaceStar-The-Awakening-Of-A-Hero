@@ -230,14 +230,14 @@ void playScreen() {
     if (currentEnemyBullet < 5) {
       image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
     }
+    
+    if (currentEnemyBullet == 4) {
+      currentEnemyBullet = 0; // resets enemy laser
+    } // reloads enemy laser
 
     enemyBullet.enemyBulletCollide(); // function to see if enemy's bullet collides with the player's spaceship
 
     currentEnemyBullet++; // increments the current bullet being used to the next one
-
-    if (currentEnemyBullet == 4) {
-      currentEnemyBullet = 0; // resets enemy laser
-    } // reloads enemy laser
 
     enemyCurShootTime = millis(); // updates current time
   } // shoot the enemy bullet after 1 second
