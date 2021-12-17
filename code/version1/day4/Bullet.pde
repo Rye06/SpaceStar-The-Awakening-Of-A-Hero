@@ -150,7 +150,7 @@ class Bullet {
      ******************************************************/
 
     if ((enemyBullet.enemyBulletPosY >= player.playerSpaceshipY-260) && (enemyBullet.enemyBulletPosX >= player.playerSpaceshipX && enemyBullet.enemyBulletPosX <= player.playerSpaceshipX+380)) {
-      player.playerLifeLeft-=50; // decreases the player's life left on collsion
+      player.playerLifeLeft-=5; // decreases the player's life left on collsion
     } // collision is seen
   }
 
