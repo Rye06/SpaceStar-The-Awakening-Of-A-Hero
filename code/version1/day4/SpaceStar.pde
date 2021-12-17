@@ -24,7 +24,6 @@ PImage enemySpaceship; // enemy's spaceship
 PImage backgroundPic; // background image
 PImage[] playerBullets; // bullet image array (player)
 PImage[] enemyBullets; // bullet image array (enemy)
-PImage playButton; // play button image
 
 /** Player **/
 Player player; // player object
