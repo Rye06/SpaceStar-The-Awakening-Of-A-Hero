@@ -6,12 +6,12 @@ The Sixth Day, I Completed-
 
 Play Screen:
 
-* Asteroids Functioning
-* Main Game Sound
-* Player Bullet Firing Sound
-* Enemy Laser Firing Sound
-* Collision with Asteroids Sound
+* I encountered Bugs in my Program, hence, was Fixing Them
+
+Home Screen:
+
+* Created a Basic Text Input for the Name of the User
 
 # What am I working on? 
 
-I am going to be working on text inputs from players for their names next.
+I am going to be adding asteroids in the game while working on the sound effects of the game.
