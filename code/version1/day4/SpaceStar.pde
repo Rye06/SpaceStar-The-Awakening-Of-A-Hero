@@ -199,7 +199,7 @@ void playScreen() {
     text("Player is Dead", width-860, height-50);
   } // player has died
 
-  if ((millis() - enemyCurShootTime > 2000) && (currentEnemyBullet < 5) && (player.playerLifeLeft >= 0)) {
+  if ((millis() - enemyCurShootTime > 2000) && (currentEnemyBullet < 5)  && (player.playerLifeLeft > 0) && (enemy.enemyLifeLeft > 0)) {
 
     enemyBullet.enemyShoot(); // calls the shoot bullet function
 
@@ -296,7 +296,7 @@ void mouseReleased() {
    ***************************************/
 
   if (screens == "Play") {
-    if (enemy.enemyLifeLeft > 0) {
+    if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
       playerBullet.playerShootBullet(); // function to shoot the player's bullet
     } // shoot only if life left is greater than 0
   }
