@@ -10,7 +10,7 @@ Play Screen:
 * Main Game Sound
 * Player Bullet Firing Sound
 * Enemy Laser Firing Sound
-* Collision with Bullets and Asteroids Sound
+* Collision with Player Bullets and Asteroids Sound
 
 # What am I working on? 
 
