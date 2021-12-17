@@ -14,6 +14,7 @@ Play Screen:
 * Collsion Detection with Lasers and Bullets
 * Life Left of the Player and Enemy
 * Implemented Enemy's Spaceship Class
+* Implemented Player's Spaceship Class
 
 Home Screen:
 
