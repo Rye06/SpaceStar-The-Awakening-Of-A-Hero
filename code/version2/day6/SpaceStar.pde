@@ -202,8 +202,8 @@ void home() {
 
   if (mousePressed) {
     if (mouseX>playButtonX && mouseX <playButtonX+playButtonW && mouseY>playButtonY && mouseY <playButtonY+playButtonH) {
-      screens = "Play"; // changes game state
       playerShootTime = 0; // player shoot time is set to 0
+      screens = "Play"; // changes game state
     }
   }
 
@@ -371,12 +371,12 @@ void mouseReleased() {
   } // records if the textbox region is pressed with the mouse
 
   if (screens == "Play") {
-    if (millis() - playerShootTime > 3000) {
+    if (millis() - playerShootTime > 8000) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
         playerBulletFire.play();
       } // shoot only if player and enemy life left are greater than 0
-    } // fires the player's bullet only after 3 seconds of the play button being clicked
+    } // fires the player's bullet only after 8 seconds of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
 }
 
