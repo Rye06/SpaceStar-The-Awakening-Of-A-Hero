@@ -62,10 +62,6 @@ int minPosEnemyBulletY; // minimum position the enemy's bullet must reach in ord
 int enemyCurShootTime; // current time to determine when to shoot the enemy bullet
 boolean enemyReduceLife; // reduce life of enemy or not
 
-/** Asteroid **/
-Asteroid asteroidObj; // asteroid object
-int minAsteroidPos; // minimum position asteroid has to reach before re-generating
-
 /** Play Button **/
 int playButtonX; // x coordinate of the button
 int playButtonY; // y coordinate of the button
@@ -130,11 +126,6 @@ void setup() {
   enemyBullet.enemyCreateBullets(); // creates the bullets image array (enemy)
   enemyCurShootTime = 0; // current enemy shoot time is set to 0
   enemyReduceLife = true; // allowed to reduce enemy's life
-
-  /** Asteroid **/
-  asteroidObj = new Asteroid(150, -50, 1); // asteroid object is created
-  asteroidObj.createAsteroids(); // creates asteroids
-  asteroidObj.randAsteroidPos(); // function to randomly generate asteroid values
 
   /** Play Button **/
   playButton = loadImage("playButton.png"); // play button is loaded in
@@ -245,11 +236,6 @@ void playScreen() {
   /** Current Chapter Display **/
   textSize(20);
   text("Current Chapter: " + chapters, width-865, height-655);
-
-  asteroidObj.placeAsteroid(); // function to place asteroid image on screen
-
-  /** Moves the Asteroid **/
-  asteroidObj.asteroidMove(); // function to move the asteroid down
 
   /** Generate Player and Enemy Spaceships **/
   image(playerSpaceship, player.playerSpaceshipX, player.playerSpaceshipY); // draws the player's spaceship
