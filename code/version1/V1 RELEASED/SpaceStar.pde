@@ -71,9 +71,6 @@ void setup() {
 
   size(870, 680); // size of the window
 
-  /** Loads Sounds **/
-  //firingSound = new SoundFile(this, "firingSound.mp3");
-
   /** Home Screen **/
   home = loadImage("home.png"); // loads the home screen image
 
