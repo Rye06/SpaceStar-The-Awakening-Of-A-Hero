@@ -8,4 +8,6 @@ Play Screen:
 
 * Added a Final Destination (Planet- Xenoa) 
 
-After fixing bugs in my program mainly relating to the asteroids, I have official finished my play screen!
+# What am I working on? 
+
+After fixing bugs in my program, I am going to be releasing Version 2!
