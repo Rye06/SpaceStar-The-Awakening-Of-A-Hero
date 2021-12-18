@@ -24,7 +24,6 @@ PImage enemySpaceship; // enemy's spaceship
 PImage backgroundPic; // background image
 PImage[] playerBullets; // bullet image array (player)
 PImage[] enemyBullets; // bullet image array (enemy)
-PImage playButton; // play button image
 
 /** Player **/
 Player player; // player object
@@ -50,13 +49,6 @@ int currentEnemyBullet; // current bullet being used by the enemy
 int minPosEnemyBulletY; // minimum position the enemy's bullet must reach in order to fire the next one
 int enemyCurShootTime; // current time to determine when to shoot the enemy bullet
 boolean enemyReduceLife; // reduce life of enemy or not
-
-/** Play Button **/
-int playButtonX; // x coordinate of the button
-int playButtonY; // y coordinate of the button
-int playButtonW; // width of the button
-int playButtonH; // height of the button
-
 
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
@@ -105,14 +97,6 @@ void setup() {
   enemyCurShootTime = 0; // current enemy shoot time is set to 0
   enemyReduceLife = true; // allowed to reduce enemy's life
 
-  /** Play Button **/
-  playButton = loadImage("playButton.png"); // play button is loaded in
-  playButton.resize(275, 55); // resizes the play button
-  playButtonX = width-545; // x coordinate of the button initialized
-  playButtonY = height-250; // y coordinate of the button initialized
-  playButtonW = playButton.width; // width of the button initialized
-  playButtonH = playButton.height; // height of the button initialized
-
   /** Game States **/
   screens = "Home"; // sets the game state to the home screen
   chapters = "Start"; // first chapter is set to "The Start"
@@ -152,14 +136,6 @@ void home() {
    Home Screen
    ***************************************/
   image(home, 0, 0); // loads home screen image
-
-  image(playButton, playButtonX, playButtonY);
-
-  if (mousePressed) {
-    if (mouseX>playButtonX && mouseX <playButtonX+playButtonW && mouseY>playButtonY && mouseY <playButtonY+playButtonH) {
-      screens = "Play"; // changes game state
-    }
-  }
 
   /** Current Chapter Display **/
   textSize(20);
@@ -264,8 +240,11 @@ void keyPressed() {
    Performs Action Based on a Key Press
    ***************************************/
 
-  /** Reaches the Extreme End Flags **/
+  if (key == 32 && screens == "Home") {
+    screens = "Play";
+  } // sets the screen to play with spacebar press from the home screen
 
+  /** Reaches the Extreme End Flags **/
   boolean atRightEndFlag = false; // flag if the player's spaceship reaches off the the screen
   boolean atLeftEndFlag = false; // flag if the player's spaceship reaches off the the screen
 
@@ -310,10 +289,8 @@ void mouseReleased() {
    ***************************************/
 
   if (screens == "Play") {
-    if (millis() > 1500) {
-      if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
-        playerBullet.playerShootBullet(); // function to shoot the player's bullet
-      } // shoot only after 1.5 seconds
+    if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
+      playerBullet.playerShootBullet(); // function to shoot the player's bullet
     } // shoot only if player and enemy life left are greater than 0
   }
 }
