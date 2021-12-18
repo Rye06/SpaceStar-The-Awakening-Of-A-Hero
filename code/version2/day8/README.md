@@ -7,7 +7,6 @@ The Eighth Day, I Completed-
 Play Screen:
 
 * Added Levels
-* Change in Speed for Each Level.
 
 # What am I working on? 
 
