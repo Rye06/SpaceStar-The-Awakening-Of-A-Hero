@@ -227,7 +227,7 @@ void playScreen() {
     if (currentEnemyBullet < 5) {
       image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
     }
-    
+
     if (currentEnemyBullet == 4) {
       currentEnemyBullet = 0; // resets enemy laser
     } // reloads enemy laser
@@ -313,8 +313,10 @@ void mouseReleased() {
    ***************************************/
 
   if (screens == "Play") {
-     if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
-      playerBullet.playerShootBullet(); // function to shoot the player's bullet
+    if (millis() > 1500) {
+      if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
+        playerBullet.playerShootBullet(); // function to shoot the player's bullet
+      }
     } // shoot only if player and enemy life left are greater than 0
   }
 }
