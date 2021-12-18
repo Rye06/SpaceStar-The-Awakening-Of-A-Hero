@@ -91,7 +91,7 @@ void setup() {
   size(870, 680); // size of the window
 
   /** Loads Sounds **/
-  // mainGameSound  = new SoundFile(this, "mainGame.mp3");
+  mainGameSound  = new SoundFile(this, "mainGame.mp3");
   playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
   enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
 
@@ -148,7 +148,7 @@ void setup() {
   chapters = "Start"; // first chapter is set to "The Start"
 
   /** Sound **/
-  //mainGameSound.loop(); // loops main game sound
+  mainGameSound.loop(); // loops main game sound
 
   /** Name Input **/
   InitLayout(); // layout of the textbox
