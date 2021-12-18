@@ -162,7 +162,7 @@ void home() {
       enemyCurShootTime = millis(); // enemy shoot time starts measuring the time
       screens = "Play"; // changes game state
     }
-  }
+  } // play button is clicked
 
   /** Current Chapter Display **/
   textSize(20);
