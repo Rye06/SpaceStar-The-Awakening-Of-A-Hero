@@ -316,7 +316,7 @@ void mouseReleased() {
     if (millis() > 1500) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
-      }
+      } // fires the player's bullet only after 1.5 seconds of the play button being clicked 
     } // shoot only if player and enemy life left are greater than 0
   }
 }
