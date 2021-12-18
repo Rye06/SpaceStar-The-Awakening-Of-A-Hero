@@ -12,6 +12,8 @@ Home Screen:
 
 * Created a Basic Text Input for the Name of the User
 
+NOTE: TEXTBOX CLASS WAS CREATED AND CHANGES WERE ONLY MADE IN THE MAIN- SPACESTAR CLASS
+
 # What am I working on? 
 
 I am going to be adding asteroids in the game while working on the sound effects of the game.
