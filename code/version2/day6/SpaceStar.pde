@@ -51,6 +51,7 @@ String chapters; // chapters of the game
 Bullet playerBullet; // bullet object (player)
 int currentPlayerBullet; // current bullet being used by the player
 int minPosPlayerBulletY; // minimum position the player's bullet must reach in order to fire the next one
+int playerShootTime; // player shoot time after the play button is clicked
 
 /** Enemy **/
 Enemy enemy; // enemy object
@@ -202,6 +203,7 @@ void home() {
   if (mousePressed) {
     if (mouseX>playButtonX && mouseX <playButtonX+playButtonW && mouseY>playButtonY && mouseY <playButtonY+playButtonH) {
       screens = "Play"; // changes game state
+      playerShootTime = 0; // player shoot time is set to 0
     }
   }
 
@@ -369,10 +371,12 @@ void mouseReleased() {
   } // records if the textbox region is pressed with the mouse
 
   if (screens == "Play") {
-    if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
-      playerBullet.playerShootBullet(); // function to shoot the player's bullet
-      playerBulletFire.play();
-    } // shoot only if player and enemy life left are greater than 0
+    if (millis() - playerShootTime > 3000) {
+      if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
+        playerBullet.playerShootBullet(); // function to shoot the player's bullet
+        playerBulletFire.play();
+      } // shoot only if player and enemy life left are greater than 0
+    } // fires the player's bullet only after 3 seconds of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
 }
 
