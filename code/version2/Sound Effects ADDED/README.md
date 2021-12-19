@@ -2,7 +2,7 @@
 
 # What did I do?
 
-The Twelth Day, I Completed-
+The Twelfth Day, I Completed-
 
 Play Screen:
 
