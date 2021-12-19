@@ -138,7 +138,7 @@ void setup() {
   chapters = "Start"; // first chapter is set to "The Start"
 
   /** Name Input **/
-  InitLayout(); // layout of the textbox
+  textInitLayout(); // layout of the textbox
   send = false; // send is initially false
 } // end setup
 
@@ -391,7 +391,7 @@ void mouseReleased() {
  ***
  **************************************/
 
-void InitLayout() {
+void textInitLayout() {
 
   /****************************************
    Layout of the TextBox
