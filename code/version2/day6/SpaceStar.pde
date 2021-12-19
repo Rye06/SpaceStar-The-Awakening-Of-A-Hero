@@ -11,8 +11,6 @@
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 
-import processing.sound.*; // imports sounds library
-
 /************************************
  ***
  Global Variables
@@ -28,11 +26,6 @@ PImage backgroundPic; // background image
 PImage[] playerBullets; // bullet image array (player)
 PImage[] enemyBullets; // bullet image array (enemy)
 PImage playButton; // play button image
-
-/** Sounds **/
-SoundFile mainGameSound; // main game sound
-SoundFile playerBulletFire; // player bullet fire sound
-SoundFile enemyLaserFire; // enemy laser sound
 
 /** Home **/
 boolean blurredHomeWanted; // checks to see if the blurred home screen is wanted or not
