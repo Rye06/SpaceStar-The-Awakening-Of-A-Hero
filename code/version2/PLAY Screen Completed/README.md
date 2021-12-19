@@ -10,4 +10,4 @@ Play Screen:
 
 # What am I working on? 
 
-After fixing bugs in my program, I am going to be releasing Version 2!
+After adding sound effects, I am going to be releasing Version 2!
