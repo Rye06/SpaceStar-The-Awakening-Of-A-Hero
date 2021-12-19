@@ -8,6 +8,8 @@ Play Screen:
 
 * Added Levels
 
+NOTE: CHANGES WERE ONLY MADE IN THE MAIN- SPACESTAR CLASS
+
 # What am I working on? 
 
 I am going to be working on different abilities in the game, and then implement specific ones for each level!
