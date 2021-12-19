@@ -373,7 +373,7 @@ void mouseReleased() {
  ***
  **************************************/
 
-void InitLayout() {
+void textInitLayout() {
 
   /****************************************
    Layout of the TextBox
