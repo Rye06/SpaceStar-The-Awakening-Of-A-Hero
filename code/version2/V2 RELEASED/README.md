@@ -8,4 +8,4 @@ The Thirteenth Day, I completed-
 
 # What am I working on? 
 
-Now, I am going to be developing version 3, starting with the deploytment and productio nof the chapter passed screen.
+Now, I am going to be developing version 3, starting with the deployment and production of the chapter passed screen.
