@@ -296,12 +296,14 @@ void playScreen() {
     fill(255);
     text("Enemy Life Left: " + enemy.enemyLifeLeft, width-120, height-655);
   } // enemy is alive
-  else {
+    else {
     text("Enemy is Dead", width-120, height-655);
     if (chapters == "Start") {
+      chapterChange = true; // chapter change is seen
       chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
     } else if (chapters == "Carry on The Legacy") {
       chapters = "The Final One"; // chapter changed to the final one
+      chapterChange = true; // chapter change is seen
     } else {
       // GAME FINISHED SCREEN
     }
