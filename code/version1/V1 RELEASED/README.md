@@ -1,4 +1,4 @@
-# Version is RELEASED! (Day 5)
+# Version 1 is RELEASED! (Day 5)
 
 # What did I do?
 
