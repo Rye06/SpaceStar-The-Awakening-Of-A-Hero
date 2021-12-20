@@ -97,6 +97,14 @@ class Asteroid {
       if (randomAsteroidYVals[k] > 800) {
         randAsteroidY(k); // generates new random asteroid y value
       } // edge of screen is reached
+      
+      if (chapterChange) {
+        for (int s = 0; s < randomAsteroidYVals.length; s++) {
+          randAsteroidY(s);
+        }
+        asteroidObj.asteroidX = width-720; // resets asteroid X position
+        chapterChange = false; // chapter change is now false
+      } // resets y asteroid position if a new chapter is seen
     }
   }
 
