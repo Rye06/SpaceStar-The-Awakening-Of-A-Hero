@@ -306,15 +306,15 @@ void playScreen() {
       // GAME FINISHED SCREEN
     }
 
-    resetElements(); // resets the elements of the game
+    resetLives(); // resets the lives of the player and the enemy
     screens = "Home"; // screen is back to home
   } // enemy has died
 }
 
-void resetElements() {
+void resetLives() {
 
   /********************************************
-   Resets Elements in the Game
+   Resets the Lives of the Player and the Enemy
    ********************************************/
 
   player.playerLifeLeft = 100; // player life is reset
