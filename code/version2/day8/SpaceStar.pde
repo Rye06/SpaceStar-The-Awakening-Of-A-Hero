@@ -60,7 +60,6 @@ boolean enemyReduceLife; // reduce life of enemy or not
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
 int minAsteroidPos; // minimum position asteroid has to reach before re-generating
-boolean asteroidDoDmg; // asteroid is allowed or not to do damage
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -127,7 +126,6 @@ void setup() {
   asteroidObj = new Asteroid(width-720, height-50, 1); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
-  asteroidDoDmg = true; // asteroid is allowed to do damage
 
   /** Play Button **/
   playButton = loadImage("playButton.png"); // play button is loaded in
@@ -207,6 +205,7 @@ void home() {
   if (mousePressed) {
     if (mouseX>playButtonX && mouseX <playButtonX+playButtonW && mouseY>playButtonY && mouseY <playButtonY+playButtonH) {
       playerShootTime = millis(); // player shoot time starts measuring the time
+      println(playerShootTime/1000);
       enemyCurShootTime = millis(); // enemy shoot time starts measuring the time
       screens = "Play"; // changes game state
     }
@@ -293,8 +292,8 @@ void playScreen() {
     enemyCurShootTime = millis(); // updates enemy shoot time
   } // shoot the enemy bullet after 1 second
 
-   /** Enemy Life Left **/
-  if (enemy.enemyLifeLeft < 0) {
+  /** Enemy Life Left **/
+  if (enemy.enemyLifeLeft > 0) {
     textSize(14);
     fill(255);
     text("Enemy Life Left: " + enemy.enemyLifeLeft, width-120, height-655);
@@ -302,8 +301,8 @@ void playScreen() {
   else {
     text("Enemy is Dead", width-120, height-655);
     if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
-      asteroidDoDmg = false; // asteroid is not allowed to do damage
+      resetElements(); // resets the elements in the game
+      screens = "Home"; // screen is changed back to home
     } else {
       // GAME FINISHED SCREEN
     }
@@ -320,10 +319,9 @@ void resetElements() {
   enemy.enemyLifeLeft = 100;
   asteroidObj.asteroidX = width-720;
   enemy.enemySpaceshipX = width-545;
-  enemy.enemySpaceshipY =  height-655;
   player.playerSpaceshipX = width-600;
-  player. playerSpaceshipY =  height-250;
-  asteroidDoDmg = true; // asteroid is allowed to do damage
+  player.playerSpaceshipY =  height-250;
+  playerBullet.playerBulletPosY = -50;
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
     chapterChange = true; // chapter change is seen
