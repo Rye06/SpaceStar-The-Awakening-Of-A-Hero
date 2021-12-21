@@ -291,37 +291,46 @@ void playScreen() {
     enemyCurShootTime = millis(); // updates enemy shoot time
   } // shoot the enemy bullet after 1 second
 
-  /** Enemy Life Left **/
-  if (enemy.enemyLifeLeft > 0) {
+   /** Enemy Life Left **/
+  if (enemy.enemyLifeLeft < 0) {
     textSize(14);
     fill(255);
     text("Enemy Life Left: " + enemy.enemyLifeLeft, width-120, height-655);
   } // enemy is alive
-    else {
+  else {
     text("Enemy is Dead", width-120, height-655);
-    if (chapters == "Start") {
-      chapterChange = true; // chapter change is seen
-      chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
-    } else if (chapters == "Carry on The Legacy") {
-      chapters = "The Final One"; // chapter changed to the final one
-      chapterChange = true; // chapter change is seen
+    if (chapters == "Start" || chapters == "Carry on The Legacy") {
+      homePlanetY = height-950; // brings home planet y on the screen
+      enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
+      allowPlayerYMovement = true; // player y movement is allowed
+      asteroidDoDmg = false; // asteroid is not allowed to do damage
     } else {
       // GAME FINISHED SCREEN
     }
-
-    resetLives(); // resets the lives of the player and the enemy
-    screens = "Home"; // screen is back to home
   } // enemy has died
 }
 
-void resetLives() {
+void resetElements() {
 
   /********************************************
-   Resets the Lives of the Player and the Enemy
+   Resets the Elements of the Game
    ********************************************/
 
-  player.playerLifeLeft = 100; // player life is reset
-  enemy.enemyLifeLeft = 100; // enemy life is reset
+  player.playerLifeLeft = 100;
+  enemy.enemyLifeLeft = 100;
+  asteroidObj.asteroidX = width-720;
+  enemy.enemySpaceshipX = width-545;
+  enemy.enemySpaceshipY =  height-655;
+  player.playerSpaceshipX = width-600;
+  player. playerSpaceshipY =  height-250;
+  asteroidDoDmg = true; // asteroid is allowed to do damage
+  if (chapters == "Start") {
+    chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
+    chapterChange = true; // chapter change is seen
+  } else {
+    chapters = "The Final One"; // chapter changed to the final one
+    chapterChange = true; // chapter change is seen
+  }
 }
 
 // ---------------------------------------------------------------------------------------------
