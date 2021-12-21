@@ -60,6 +60,7 @@ boolean enemyReduceLife; // reduce life of enemy or not
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
 int minAsteroidPos; // minimum position asteroid has to reach before re-generating
+boolean asteroidDoDmg; // asteroid is allowed or not to do damage
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -126,6 +127,7 @@ void setup() {
   asteroidObj = new Asteroid(width-720, height-50, 1); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
+  asteroidDoDmg = true; // asteroid is allowed to do damage
 
   /** Play Button **/
   playButton = loadImage("playButton.png"); // play button is loaded in
