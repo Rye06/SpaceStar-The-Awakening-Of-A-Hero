@@ -302,9 +302,7 @@ void playScreen() {
   else {
     text("Enemy is Dead", width-120, height-655);
     if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      homePlanetY = height-950; // brings home planet y on the screen
       enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
-      allowPlayerYMovement = true; // player y movement is allowed
       asteroidDoDmg = false; // asteroid is not allowed to do damage
     } else {
       // GAME FINISHED SCREEN
