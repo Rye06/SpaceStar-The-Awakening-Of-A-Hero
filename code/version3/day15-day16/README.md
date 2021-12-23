@@ -6,7 +6,7 @@ The Fifteenth and Sixteenth Day, I Completed-
 
 Chapter Passed Screen:
 
-* NEW Game Button
+* New Game Button
 * Continue Game Button
 
 Chapter Failed Screen:
