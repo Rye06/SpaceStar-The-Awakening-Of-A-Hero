@@ -109,7 +109,7 @@ void setup() {
   size(870, 680); // size of the window
 
   /** Loads Sounds **/
-  //mainGameSound  = new SoundFile(this, "mainGame.mp3");
+  mainGameSound  = new SoundFile(this, "mainGame.mp3");
   playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
   enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
 
