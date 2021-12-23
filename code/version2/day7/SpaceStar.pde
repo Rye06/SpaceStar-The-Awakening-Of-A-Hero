@@ -295,9 +295,6 @@ void playScreen() {
   } // enemy is alive
   else {
     text("Enemy has Died", width-120, height-655);
-    if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      asteroidDoDmg = false; // asteroid is not allowed to do damage
-    }
   } // enemy has died
 }
 
