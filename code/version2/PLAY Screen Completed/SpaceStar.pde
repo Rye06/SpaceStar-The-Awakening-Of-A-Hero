@@ -29,6 +29,8 @@ PImage playButton; // play button image
 PImage homePlanet; // home planet's image
 PImage doubleDamage; // double damage image
 PImage invincibility; // invincibility image
+PImage chapterPassed; // chapter passed image
+PImage chapterFailed; // chapter failed image
 
 /** Home **/
 boolean blurredHomeWanted; // checks to see if the blurred home screen is wanted or not
@@ -169,6 +171,8 @@ void setup() {
   /** Game States **/
   chapters = "Start"; // first chapter is set to "The Start"
   chapterChange = false; // no chapter change is seen
+  chapterPassed = loadImage("chapterPassed.png"); // loads chapter passed image
+  chapterFailed = loadImage("chapterFailed.png"); // loads chapter failed image
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
@@ -391,7 +395,8 @@ void resetElements() {
     chapters = "The Final One"; // chapter changed to the final one
     chapterChange = true; // chapter change is seen
   }
-  screens = "Home"; // shifts the screens back to home
+
+  screens = "Home"; // screen is changed back to home
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -496,7 +501,7 @@ void keyPressed() {
   if (dist(homePlanetX+320, homePlanetY+400, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 290) {
     allowPlayerYMovement = false; // player y movement isnt allowed
     homePlanetY = -650; // shifts the home planet y off the screen
-    resetElements(); // calls the reset elements function
+    resetElements(); // calls the function to reset the elements of the game
   }
 }
 
