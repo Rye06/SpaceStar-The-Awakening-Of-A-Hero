@@ -4,7 +4,7 @@
 
 The Thirteenth Day, I completed-
 
-**Verified all three classes by testing the code**
+**Verified all three classes by testing the code!**
 
 # What am I working on? 
 
