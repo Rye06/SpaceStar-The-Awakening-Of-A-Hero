@@ -19,10 +19,13 @@ class Bullet {
   int playerBulletPosX; // x position of the player's bullet
   int playerBulletPosY; // y position of the player's bullet
   int playerBulletSpeed; // player's bullet speed
+  int playerBulletDamage; // damage of the player's bullet
 
   /** Enemy Bullets **/
   int enemyBulletPosX; // x position of the enemy's bullet
   int enemyBulletPosY; // y position of the enemy's bullet
+  int enemyShootTime; // random period of time in which the enemy shoots
+  int enemyBulletDamage; // damage of the enemy's bullet
 
   // ---------------------------------------------------------------------------------------------
   // ---------------------------------------------------------------------------------------------
@@ -98,9 +101,16 @@ class Bullet {
 
     if ((playerBulletPosY >= 0 && playerBulletPosY <= enemy.enemySpaceshipY+200) && (playerBulletPosX >= enemy.enemySpaceshipX
       && playerBulletPosX <= enemy.enemySpaceshipX+250) && (enemyReduceLife)) {
-      enemy.enemyLifeLeft-=5; // decreases the enemy's life left on collsion
+      if (chapters == "Start") {
+        playerBulletDamage=5;
+      } else if (chapters == "Carry on The Legacy") {
+        playerBulletDamage=10;
+      } else {
+        playerBulletDamage=15;
+      }
+      enemy.enemyLifeLeft-=playerBulletDamage; // reduces enemy life
       enemyReduceLife = false; // dont reduce enemy life
-    } // collision is seen
+    } // decreases the enemy's life left on collsion
   }
 
   // ---------------------------------------------------------------------------------------------
@@ -135,6 +145,21 @@ class Bullet {
     enemyBulletPosY = 730; // sets the initial y bullet position off the screen
   }
 
+  void updateEnemyShootTime() {
+
+    /**********************************************
+     Updates the Random Enemy Shoot Time
+     **********************************************/
+
+    if (chapters == "Start") {
+      enemyShootTime  = int(random(1100, 2000));
+    } else if (chapters == "Carry on The Legacy") {
+      enemyShootTime  = int(random(600, 1000));
+    } else {
+      enemyShootTime  = int(random(500, 900));
+    }
+  }
+
   void enemyShoot() {
 
     /*********************************************
@@ -152,8 +177,15 @@ class Bullet {
      ******************************************************/
 
     if ((enemyBulletPosY >= player.playerSpaceshipY-260) && (enemyBulletPosX >= player.playerSpaceshipX && enemyBulletPosX <= player.playerSpaceshipX+380)) {
-      player.playerLifeLeft-=10; // decreases the player's life left on collsion
-    } // collision is seen
+      if (chapters == "Start") {
+        enemyBulletDamage=10;
+      } else if (chapters == "Carry on The Legacy") {
+        enemyBulletDamage=15;
+      } else {
+        enemyBulletDamage=20;
+      }
+      player.playerLifeLeft-=enemyBulletDamage; // reduces player life
+    } // decreases the player's life left on collsion
   }
 
   // ---------------------------------------------------------------------------------------------
