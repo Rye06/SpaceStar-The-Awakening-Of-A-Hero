@@ -32,6 +32,7 @@ boolean blurredHomeWanted; // checks to see if the blurred home screen is wanted
 
 /** Player **/
 Player player; // player object
+boolean allowPlayerYMovement;
 
 /** Background **/
 int backgroundY; // y axis of the background image
@@ -66,7 +67,7 @@ int playButtonH; // height of the button
 ArrayList<TextBox> textboxes = new ArrayList<TextBox>(); // array list of text boxes
 boolean send;
 String name = ""; // name of the player
-String finalName = ""; // final saved name
+public String finalName = ""; // final saved name
 
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
@@ -94,6 +95,7 @@ void setup() {
   player = new Player(100, width-600, height-250);
   playerSpaceship = loadImage("playerSpaceship.png"); // loads the player's spaceship
   playerSpaceship.resize(380, 260); // resizes the player's spaceship
+  allowPlayerYMovement = false; // player y movement isnt allowed
 
   /** Player's Bullet **/
   playerBullet = new Bullet(); // initializes the player bullet object
@@ -178,13 +180,10 @@ void home() {
   /****************************************
    Home Screen
    ***************************************/
+
   image(home, 0, 0); // loads home screen image
 
   image(playButton, playButtonX, playButtonY);
-
-  if (send) {
-    text(name, (width - textWidth(name)) / 2, 260);
-  } // displays the text
 
   if (mousePressed) {
     if (mouseX>playButtonX && mouseX <playButtonX+playButtonW && mouseY>playButtonY && mouseY <playButtonY+playButtonH) {
@@ -226,6 +225,8 @@ void playScreen() {
   textSize(20);
   text("Current Chapter: " + chapters, width-865, height-655);
 
+  enemy.updateEnemyMovementX(); // updates the enemy movement x value
+
   /** Generate Player and Enemy Spaceships **/
   image(playerSpaceship, player.playerSpaceshipX, player.playerSpaceshipY); // draws the player's spaceship
   image(enemySpaceship, enemy.enemySpaceshipX, enemy.enemySpaceshipY); // draws the enemy's spaceship
@@ -250,10 +251,12 @@ void playScreen() {
   } // player is alive
   else {
     textSize(14);
-    text("Player is Dead", width-860, height-50);
+    text("Player has Died", width-860, height-50);
   } // player has died
 
-  if ((millis() - enemyCurShootTime > 2000) && (player.playerLifeLeft > 0) && (enemy.enemyLifeLeft > 0)) {
+  enemyBullet.updateEnemyShootTime(); // updates the enemy shoot time
+
+  if ((millis() - enemyCurShootTime > enemyBullet.enemyShootTime) && (player.playerLifeLeft > 0) && (enemy.enemyLifeLeft > 0)) {
 
     enemyBullet.enemyShoot(); // calls the shoot bullet function
 
@@ -277,7 +280,7 @@ void playScreen() {
     text("Enemy Life Left: " + enemy.enemyLifeLeft, width-120, height-655);
   } // enemy is alive
   else {
-    text("Enemy is Dead", width-120, height-655);
+    text("Enemy has Died", width-120, height-655);
   } // enemy has died
 }
 
@@ -305,21 +308,18 @@ void keyPressed() {
   } // records the key pressed in the textbox
 
   /** Reaches the Extreme End Flags **/
-
   boolean atRightEndFlag = false; // flag if the player's spaceship reaches off the the screen
   boolean atLeftEndFlag = false; // flag if the player's spaceship reaches off the the screen
 
   /** Detect if the Player's Spaceship is Moving Extremely Right or Left **/
-
   if (player.playerSpaceshipX >= width-380) {
-    atRightEndFlag = true; // reaches the end flag is true
+    atRightEndFlag = true; // reaches the right end
   } // if the player's spaceship goes extremely to the right off the screen
   else if (player.playerSpaceshipX <= 10) {
-    atLeftEndFlag = true; // reaches the end flag is true
+    atLeftEndFlag = true; // reaches the left end
   } // if the player's spaceship goes extremely to the left off the screen
 
   /** Makes sure the Player's Spaceship doesn't go off the screen **/
-
   if (atRightEndFlag) {
     if (key == 'd' || key == 'D') {
       player.playerSpaceshipX +=0;
@@ -337,7 +337,7 @@ void keyPressed() {
   /** ONLY If the Player's Spaceship is NOT Moving to the Extreme Right or Left **/
   /** Moves the Player's Spaceship Left and Right **/
 
-  if (player.playerSpaceshipX < width-380 && player.playerSpaceshipX > 10 && atRightEndFlag == false && atRightEndFlag == false) {
+  if (player.playerSpaceshipX < width-380 && player.playerSpaceshipX > 10 && !atRightEndFlag && !atRightEndFlag) {
     if (key == 'a' || key == 'A') {
       player.playerSpaceshipX -=10;
     } else if (key == 'd' || key == 'D') {
