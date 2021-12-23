@@ -206,10 +206,6 @@ void home() {
 
   image(home, 0, 0); // loads home screen image
 
-  /** Name Display **/
-  textSize(18);
-  text("Player: " + finalName, width-865, height-625);
-
   image(playButton, playButtonX, playButtonY);
 
   if (send) {
@@ -254,9 +250,6 @@ void playScreen() {
   /** Current Chapter Display **/
   textSize(18);
   text("Current Chapter: " + chapters, width-865, height-655);
-
-  /** Name Display **/
-  text("Player: " + finalName, width-865, height-625);
 
   enemy.updateEnemyMovementX(); // updates the enemy movement x value
 
