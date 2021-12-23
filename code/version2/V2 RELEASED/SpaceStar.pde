@@ -11,6 +11,8 @@
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 
+import processing.sound.*; // imports sounds library
+
 /************************************
  ***
  Global Variables
@@ -29,6 +31,11 @@ PImage playButton; // play button image
 PImage homePlanet; // home planet's image
 PImage doubleDamage; // double damage image
 PImage invincibility; // invincibility image
+
+/** Sounds **/
+SoundFile mainGameSound; // main game sound
+SoundFile playerBulletFire; // player bullet fire sound
+SoundFile enemyLaserFire; // enemy laser sound
 
 /** Home **/
 boolean blurredHomeWanted; // checks to see if the blurred home screen is wanted or not
@@ -98,6 +105,11 @@ public String finalName = ""; // final saved name
 void setup() {
 
   size(870, 680); // size of the window
+
+  /** Loads Sounds **/
+  mainGameSound  = new SoundFile(this, "mainGame.mp3");
+  playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
+  enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
 
   /** Home Screen **/
   home = loadImage("home.png"); // loads the home screen image
@@ -169,6 +181,9 @@ void setup() {
   /** Game States **/
   chapters = "Start"; // first chapter is set to "The Start"
   chapterChange = false; // no chapter change is seen
+
+  /** Plays Main Game Sound **/
+  mainGameSound.loop(); // loops main game sound
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
@@ -341,6 +356,8 @@ void playScreen() {
     enemyBullet.enemyShoot(); // calls the shoot bullet function
 
     image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
+
+    enemyLaserFire.play(); // plays enemy laser firing sound
 
     enemyBullet.enemyBulletCollide(); // function to see if enemy's bullet collides with the player's spaceship
 
@@ -515,6 +532,7 @@ void mouseReleased() {
     if (millis() - playerShootTime > 1000) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
+        playerBulletFire.play(); // plays player's bullet fire sound
       } // shoot only if player and enemy life left are greater than 0
     } // fires the player's bullet only after 1 second of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
