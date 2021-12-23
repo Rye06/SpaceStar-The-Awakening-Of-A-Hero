@@ -39,6 +39,7 @@ String chapters; // chapters of the game
 Bullet playerBullet; // bullet object (player)
 int currentPlayerBullet; // current bullet being used by the player
 int minPosPlayerBulletY; // minimum position the player's bullet must reach in order to fire the next one
+int playerShootTime; // player shoot time after the play button is clicked
 
 /** Enemy **/
 Enemy enemy; // enemy object
