@@ -19,7 +19,7 @@ class Enemy {
   int enemySpaceshipX; // x coordinate of the enemy's spaceship
   int enemySpaceshipY; // y coordinate of the enemy's spaceship
 
-  int moveEnemySpaceshipX = 5; // moves the enemy spaceship x coordinate
+  int moveEnemySpaceshipX; // moves the enemy spaceship x coordinate
   boolean leftBorder = false; // left border
   boolean rightBorder = false; // right border
 
@@ -48,6 +48,21 @@ class Enemy {
    ***
    **************************************/
 
+  void updateEnemyMovementX() {
+
+    /**********************************************
+     Updates the Enemy Movement X Value
+     **********************************************/
+
+    if (chapters == "Start" && !rightBorder) {
+      moveEnemySpaceshipX  = 5;
+    } else if (chapters == "Carry on The Legacy" && !rightBorder) {
+      moveEnemySpaceshipX  = 7;
+    } else if (chapters == "The Final One" && !rightBorder) {
+      moveEnemySpaceshipX  = 9;
+    }
+  }
+
   void moveEnemySpaceship() {
 
     /*******************************************
@@ -55,7 +70,6 @@ class Enemy {
      *******************************************/
 
     /** Moves the Enemy Spaceship **/
-
     enemySpaceshipX+= moveEnemySpaceshipX; // moves the enemy spaceship
 
     /** Checks Enemy Spaceship Position Based on Border Touched **/
@@ -68,10 +82,14 @@ class Enemy {
     }
 
     /** Changes Enemy Spaceship Movement Depending on Border Touched **/
-    if (rightBorder && !leftBorder) {
-      moveEnemySpaceshipX = -5;
-    } else if (!rightBorder && leftBorder) {
-      moveEnemySpaceshipX = 5;
+    if (!leftBorder) {
+      if (chapters == "Start" && rightBorder) {
+        moveEnemySpaceshipX  = -5;
+      } else if (chapters == "Carry on The Legacy" && rightBorder) {
+        moveEnemySpaceshipX  = -7;
+      } else if (chapters == "The Final One" && rightBorder) {
+        moveEnemySpaceshipX  = -9;
+      }
     }
   }
 
