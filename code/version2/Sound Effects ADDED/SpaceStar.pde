@@ -31,8 +31,6 @@ PImage playButton; // play button image
 PImage homePlanet; // home planet's image
 PImage doubleDamage; // double damage image
 PImage invincibility; // invincibility image
-PImage chapterPassed; // chapter passed image
-PImage chapterFailed; // chapter failed image
 
 /** Sounds **/
 SoundFile mainGameSound; // main game sound
@@ -183,8 +181,6 @@ void setup() {
   /** Game States **/
   chapters = "Start"; // first chapter is set to "The Start"
   chapterChange = false; // no chapter change is seen
-  chapterPassed = loadImage("chapterPassed.png"); // loads chapter passed image
-  chapterFailed = loadImage("chapterFailed.png"); // loads chapter failed image
 
   /** Plays Main Game Sound **/
   mainGameSound.loop(); // loops main game sound
@@ -224,9 +220,6 @@ void draw() {
   else if (screens == "Play") {
     playScreen(); // calls play screen function
   } // play screen ends
-  else if (screens == "End") {
-    endGame(); // end game function is called
-  }
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -353,7 +346,6 @@ void playScreen() {
   } // player is alive
   else {
     resetElements(); // elements of the game are reset
-    endGame(); // calls the end game function
     chapters = "Start"; // chapter is changed back to start
   } // player has died
 
@@ -364,6 +356,7 @@ void playScreen() {
     enemyBullet.enemyShoot(); // calls the shoot bullet function
 
     image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
+
     enemyLaserFire.play(); // plays enemy laser firing sound
 
     enemyBullet.enemyBulletCollide(); // function to see if enemy's bullet collides with the player's spaceship
@@ -415,29 +408,8 @@ void resetElements() {
     chapters = "The Final One"; // chapter changed to the final one
     chapterChange = true; // chapter change is seen
   }
-}
 
-void endGame() {
-
-  /****************************************************
-   Function for the End Screen(s)
-   ****************************************************/
-
-  /** Overrides the Previous Background Images **/
-  image(backgroundPic, 0, backgroundY);  // draws the new first background image on screen
-  image(backgroundPic, 0, backgroundY-backgroundPic.height); // places the new second background image on screen
-
-  backgroundY+=3; // scrolls through the new background
-
-  if (backgroundY >= backgroundPic.height) {
-    backgroundY = 0;
-  } // resets the new background once first image is fully moved through
-
-  if (player.playerLifeLeft >= 0) {
-    image(chapterPassed, 0, 0); // places chapter passed image on screen
-  } else {
-    image(chapterFailed, 0, 0);  // places chapter failed image on screen
-  }
+  screens = "Home"; // screen is changed back to home
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -542,7 +514,7 @@ void keyPressed() {
   if (dist(homePlanetX+320, homePlanetY+400, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 290) {
     allowPlayerYMovement = false; // player y movement isnt allowed
     homePlanetY = -650; // shifts the home planet y off the screen
-    screens = "End"; // screen is now end
+    resetElements(); // calls the function to reset the elements of the game
   }
 }
 
@@ -560,7 +532,7 @@ void mouseReleased() {
     if (millis() - playerShootTime > 1000) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
-        playerBulletFire.play();
+        playerBulletFire.play(); // plays player's bullet fire sound
       } // shoot only if player and enemy life left are greater than 0
     } // fires the player's bullet only after 1 second of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
