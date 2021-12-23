@@ -22,7 +22,7 @@ class Asteroid {
   ArrayList<PImage> asteroids = new ArrayList<PImage>(); // asteroids's image array list
   int[] randomAsteroidYVals = new int[backgroundPic.width]; // random asteroid y values\
 
-  int asteroidDmg = 5; // asteroid damage
+  int asteroidDmg; // asteroid damage
 
   // ---------------------------------------------------------------------------------------------
   // ---------------------------------------------------------------------------------------------
@@ -91,7 +91,14 @@ class Asteroid {
       image(asteroids.get(k), asteroidX+(k*100), randomAsteroidYVals[k]); // places asteroid image on the screen
       randomAsteroidYVals[k] += asteroidSpeed; // moves the asteroid down
 
-      if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 137) {
+      if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
+        if (chapters == "Start" && asteroidDoDmg) {
+          asteroidDmg = 5; // asteroid damage is changed to 15
+        } else if (chapters == "Carry on The Legacy" && asteroidDoDmg) {
+          asteroidDmg = 10; // asteroid damage is changed to 15
+        } else if (chapters == "The Final One" && asteroidDoDmg) {
+          asteroidDmg = 15; // asteroid damage is changed to 15
+        }
         player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
         randomAsteroidYVals[k] = -100; // shifts the asteroid off the screen
       } // collision is seen of asteroid with player's spaceship
@@ -104,7 +111,6 @@ class Asteroid {
         for (int s = 0; s < randomAsteroidYVals.length; s++) {
           randAsteroidY(s);
         }
-        asteroidObj.asteroidX = width-720; // resets asteroid X position
         chapterChange = false; // chapter change is now false
       } // resets y asteroid position if a new chapter is seen
     }
