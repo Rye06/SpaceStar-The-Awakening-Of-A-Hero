@@ -190,9 +190,6 @@ void draw() {
   else if (screens == "Play") {
     playScreen(); // calls play screen function
   } // play screen ends
-  else if (screens == "End") {
-    endGame(); // end game function is called
-  }
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -371,23 +368,6 @@ void resetElements() {
     chapters = "The Final One"; // chapter changed to the final one
     chapterChange = true; // chapter change is seen
   }
-}
-
-void endGame() {
-
-  /****************************************************
-   Function for the End Screen(s)
-   ****************************************************/
-
-  /** Overrides the Previous Background Images **/
-  image(backgroundPic, 0, backgroundY);  // draws the new first background image on screen
-  image(backgroundPic, 0, backgroundY-backgroundPic.height); // places the new second background image on screen
-
-  backgroundY+=3; // scrolls through the new background
-
-  if (backgroundY >= backgroundPic.height) {
-    backgroundY = 0;
-  } // resets the new background once first image is fully moved through
 }
 
 // ---------------------------------------------------------------------------------------------
