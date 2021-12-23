@@ -127,7 +127,7 @@ public class TextBox {
      Adds Text to the TextBox
      *******************************************/
 
-    // IF THE TEXT WIDHT IS IN BOUNDARIES OF THE TEXTBOX
+    // IF THE TEXT WIDTH IS IN BOUNDARIES OF THE TEXTBOX
     if (textWidth(name + text) < W) {
       name += text;
       TextLength++;
