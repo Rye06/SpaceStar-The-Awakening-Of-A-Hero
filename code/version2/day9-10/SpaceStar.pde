@@ -11,8 +11,6 @@
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 
-import processing.sound.*; // imports sounds library
-
 /************************************
  ***
  Global Variables
@@ -28,27 +26,14 @@ PImage backgroundPic; // background image
 PImage[] playerBullets; // bullet image array (player)
 PImage[] enemyBullets; // bullet image array (enemy)
 PImage playButton; // play button image
-PImage homePlanet; // home planet's image
 PImage doubleDamage; // double damage image
 PImage invincibility; // invincibility image
-PImage chapterPassed; // chapter passed image
-PImage chapterFailed; // chapter failed image
-
-/** Sounds **/
-SoundFile mainGameSound; // main game sound
-SoundFile playerBulletFire; // player bullet fire sound
-SoundFile enemyLaserFire; // enemy laser sound
 
 /** Home **/
 boolean blurredHomeWanted; // checks to see if the blurred home screen is wanted or not
 
-/** Home Planet **/
-int homePlanetX; // home planet's x position
-int homePlanetY; // home planet's y position
-
 /** Player **/
 Player player; // player object
-boolean allowPlayerYMovement;
 
 /** Boosts **/
 Boosts doubleDmg; // boosts object- double damage
@@ -81,7 +66,6 @@ boolean enemyReduceLife; // reduce life of enemy or not
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
 int minAsteroidPos; // minimum position asteroid has to reach before re-generating
-boolean asteroidDoDmg; // asteroid is allowed or not to do damage
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -108,11 +92,6 @@ void setup() {
 
   size(870, 680); // size of the window
 
-  /** Loads Sounds **/
-  //mainGameSound  = new SoundFile(this, "mainGame.mp3");
-  playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
-  enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
-
   /** Home Screen **/
   home = loadImage("home.png"); // loads the home screen image
   blurredHome = loadImage("blurredHome.png"); // loads the blurred home screen image
@@ -121,12 +100,6 @@ void setup() {
   /** Background of the Game **/
   backgroundPic = loadImage("background.png"); // loads the background image
   backgroundY = 0; // y coordinate of the background
-
-  /** Home Planet **/
-  homePlanet = loadImage("xenoa.png"); // loads home planet image
-  homePlanet.resize(650, 650); // resizes home planet image
-  homePlanetX = width-800; // home planet x's initial position
-  homePlanetY = -650; // home planet y's initial position
 
   /** Boosts **/
   doubleDamage = loadImage("doubleDamage.png"); // loads the double damage boost image
@@ -142,7 +115,6 @@ void setup() {
   player = new Player(100, width-600, height-250);
   playerSpaceship = loadImage("playerSpaceship.png"); // loads the player's spaceship
   playerSpaceship.resize(380, 260); // resizes the player's spaceship
-  allowPlayerYMovement = false; // player y movement isnt allowed
 
   /** Player's Bullet **/
   playerBullet = new Bullet(); // initializes the player bullet object
@@ -170,7 +142,6 @@ void setup() {
   asteroidObj = new Asteroid(width-720, height-50, 1); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
-  asteroidDoDmg = true; // asteroid is allowed to do damage
 
   /** Play Button **/
   playButton = loadImage("playButton.png"); // play button is loaded in
@@ -183,11 +154,6 @@ void setup() {
   /** Game States **/
   chapters = "Start"; // first chapter is set to "The Start"
   chapterChange = false; // no chapter change is seen
-  chapterPassed = loadImage("chapterPassed.png"); // loads chapter passed image
-  chapterFailed = loadImage("chapterFailed.png"); // loads chapter failed image
-
-  /** Plays Sound **/
-  //mainGameSound.loop(); // loops main game sound
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
@@ -324,12 +290,6 @@ void playScreen() {
     invincible.invincibilityAppear(); // makes the invincibility boost appear
   } // places the invincibility boost on the screen after random regular intervals
 
-  /** Home Planet **/
-  image(homePlanet, homePlanetX, homePlanetY); // places home planet on the screen
-  if (allowPlayerYMovement && homePlanetY <= height-950) {
-    homePlanetY+=2;
-  } // brings the home planet on the screen
-
   enemy.moveEnemySpaceship(); // calls the function to move the enemy spaceship
 
   /** Asteroids **/
@@ -352,13 +312,8 @@ void playScreen() {
     text("Player Life Left: " + player.playerLifeLeft, width-860, height-50);
   } // player is alive
   else {
-    if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
-      asteroidDoDmg = false; // asteroid is not allowed to do damage
-      endGame(); // calls the end game function
-    } else {
-      // GAME FINISHED SCREEN
-    }
+    textSize(14);
+    text("Player is Dead", width-860, height-50);
   } // player has died
 
   enemyBullet.updateEnemyShootTime(); // updates the enemy shoot time
@@ -368,7 +323,6 @@ void playScreen() {
     enemyBullet.enemyShoot(); // calls the shoot bullet function
 
     image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
-    enemyLaserFire.play(); // plays enemy laser firing sound
 
     enemyBullet.enemyBulletCollide(); // function to see if enemy's bullet collides with the player's spaceship
 
@@ -389,9 +343,8 @@ void playScreen() {
   } // enemy is alive
   else {
     if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
-      allowPlayerYMovement = true; // player y movement is allowed
-      asteroidDoDmg = false; // asteroid is not allowed to do damage
+      resetElements(); // resets the elements in the game
+      screens = "Home"; // screen is changed back to home
     } else {
       // GAME FINISHED SCREEN
     }
@@ -411,7 +364,6 @@ void resetElements() {
   player.playerSpaceshipX = width-600;
   player. playerSpaceshipY =  height-250;
   playerBullet.playerBulletPosY = -50;
-  asteroidDoDmg = true; // asteroid is allowed to do damage
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
     chapterChange = true; // chapter change is seen
@@ -436,12 +388,6 @@ void endGame() {
   if (backgroundY >= backgroundPic.height) {
     backgroundY = 0;
   } // resets the new background once first image is fully moved through
-
-  if (player.playerLifeLeft >= 0) {
-    image(chapterPassed, 0, 0); // places chapter passed image on screen
-  } else {
-    image(chapterFailed, 0, 0);  // places chapter failed image on screen
-  }
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -505,50 +451,6 @@ void keyPressed() {
       player.playerSpaceshipX += 10;
     }
   }
-
-  boolean atUpFlag = false; // flag if the player's spaceship reaches off the the screen
-  boolean atDownFlag = false; // flag if the player's spaceship reaches off the the screen
-
-  /** Detect if the Player's Spaceship is Moving Extremely Right or Left **/
-  if (player.playerSpaceshipY+30 <= 0) {
-    atUpFlag = true; // reaches the top
-  } // if the player's spaceship goes extremely to the top off the screen
-  else if (player.playerSpaceshipY+200 >= height) {
-    atDownFlag = true; // reaches the bottom
-  } // if the player's spaceship goes extremely to the bottom off the screen
-
-  /** Makes sure the Player's Spaceship doesn't go off the screen **/
-  if (atUpFlag) {
-    if (key == 'w' || key == 'W') {
-      player.playerSpaceshipY -=0;
-    } else if (key == 's' || key == 'S') {
-      player.playerSpaceshipY +=10;
-    }
-  } else if (atDownFlag) {
-    if (key == 'w' || key == 'W') {
-      player.playerSpaceshipY -= 10;
-    } else if (key == 's' || key == 'S') {
-      player.playerSpaceshipY +=0;
-    }
-  }
-
-  /** ONLY If the Player's Spaceship is Allowed to Move Along the Y-Axis **/
-  /** Moves the Player's Spaceship Up and Down **/
-
-  if (allowPlayerYMovement && !atUpFlag && !atDownFlag) {
-    if (key == 'w' || key == 'W') {
-      player.playerSpaceshipY -=10;
-    } else if (key == 's' || key == 'S') {
-      player.playerSpaceshipY += 10;
-    }
-  }
-
-  /** Move to New Chapter Screen **/
-  if (dist(homePlanetX+320, homePlanetY+400, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 290) {
-    allowPlayerYMovement = false; // player y movement isnt allowed
-    homePlanetY = -650; // shifts the home planet y off the screen
-    screens = "End"; // screen is now end
-  }
 }
 
 void mouseReleased() {
@@ -565,7 +467,6 @@ void mouseReleased() {
     if (millis() - playerShootTime > 1000) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
-        playerBulletFire.play();
       } // shoot only if player and enemy life left are greater than 0
     } // fires the player's bullet only after 1 second of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
