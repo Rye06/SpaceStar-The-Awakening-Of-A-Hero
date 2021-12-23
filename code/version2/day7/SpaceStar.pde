@@ -264,9 +264,8 @@ void playScreen() {
     text("Player Life Left: " + player.playerLifeLeft, width-860, height-50);
   } // player is alive
   else {
-    if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      asteroidDoDmg = false; // asteroid is not allowed to do damage
-    }
+    textSize(14);
+    text("Player has Died", width-860, height-50);
   } // player has died
 
   enemyBullet.updateEnemyShootTime(); // updates the enemy shoot time
