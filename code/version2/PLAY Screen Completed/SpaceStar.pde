@@ -29,8 +29,6 @@ PImage playButton; // play button image
 PImage homePlanet; // home planet's image
 PImage doubleDamage; // double damage image
 PImage invincibility; // invincibility image
-PImage chapterPassed; // chapter passed image
-PImage chapterFailed; // chapter failed image
 
 /** Home **/
 boolean blurredHomeWanted; // checks to see if the blurred home screen is wanted or not
@@ -171,8 +169,6 @@ void setup() {
   /** Game States **/
   chapters = "Start"; // first chapter is set to "The Start"
   chapterChange = false; // no chapter change is seen
-  chapterPassed = loadImage("chapterPassed.png"); // loads chapter passed image
-  chapterFailed = loadImage("chapterFailed.png"); // loads chapter failed image
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
