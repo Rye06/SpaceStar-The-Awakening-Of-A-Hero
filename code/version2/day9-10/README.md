@@ -6,12 +6,17 @@ The Ninth and Tenth Day, I Completed-
 
 Play Screen:
 
-* Added Abilities in Game for Different Levels
+* Added Abilities in Game for Different Levels- Invincibility and Double Damage
 * Name Displayed
 
 Home Screen:
 
 * Name Displayed
+
+NOTE: A BOOST CLASS WAS CREATED
+CHANGES WERE ONLY MADE IN THE-
+MAIN- SPACESTAR CLASS
+BULLET CLASS
 
 # What am I working on? 
 
