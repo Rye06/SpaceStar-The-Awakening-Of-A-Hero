@@ -11,6 +11,8 @@ Play Screen:
 * Enemy Laser Firing Sound
 * Collision with Asteroids Sound
 
+NOTE: CHANGES WERE ONLY MADE TO THE MAIN- SPACESTAR CLASS
+
 # What am I working on? 
 
 After looking over my program, and fixing any bugs, I am going to be releasing the Version 2 of my Game!!
