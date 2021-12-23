@@ -54,12 +54,8 @@ class Enemy {
      Updates the Enemy Movement X Value
      **********************************************/
 
-    if (chapters == "Start" && !rightBorder) {
+    if (!rightBorder) {
       moveEnemySpaceshipX  = 5;
-    } else if (chapters == "Carry on The Legacy" && !rightBorder) {
-      moveEnemySpaceshipX  = 7;
-    } else if (chapters == "The Final One" && !rightBorder) {
-      moveEnemySpaceshipX  = 9;
     }
   }
 
@@ -83,12 +79,8 @@ class Enemy {
 
     /** Changes Enemy Spaceship Movement Depending on Border Touched **/
     if (!leftBorder) {
-      if (chapters == "Start" && rightBorder) {
+      if (rightBorder) {
         moveEnemySpaceshipX  = -5;
-      } else if (chapters == "Carry on The Legacy" && rightBorder) {
-        moveEnemySpaceshipX  = -7;
-      } else if (chapters == "The Final One" && rightBorder) {
-        moveEnemySpaceshipX  = -9;
       }
     }
   }
