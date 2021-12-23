@@ -309,8 +309,8 @@ void playScreen() {
     text("Player Life Left: " + player.playerLifeLeft, width-860, height-50);
   } // player is alive
   else {
-    textSize(14);
-    text("Player is Dead", width-860, height-50);
+    resetElements(); // elements of the game are reset
+    chapters = "Start"; // chapter is changed back to start
   } // player has died
 
   enemyBullet.updateEnemyShootTime(); // updates the enemy shoot time
