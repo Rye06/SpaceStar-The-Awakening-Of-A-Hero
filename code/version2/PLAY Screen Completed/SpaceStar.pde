@@ -365,7 +365,17 @@ void playScreen() {
       allowPlayerYMovement = true; // player y movement is allowed
       asteroidDoDmg = false; // asteroid is not allowed to do damage
     } else {
-      // GAME FINISHED SCREEN
+      background(0); // background is overrided
+      textSize(30);
+      text("YOU FINISHED THE GAME! GOOD JOB", width-700, height-400); // game finished text
+      text("Press E to Exit or N to Play a New Game", width-700, height-200); // exit or not text
+      if (key == 'N' || key== 'n') {
+        resetElements(); // elements of the game are reset
+        chapters = "Start"; // chapter is changed back to start
+      } // new game
+      else if (key == 'E' || key == 'e') {
+        exit(); // exits the game
+      } // exit the game
     }
   } // enemy has died
 }
@@ -387,7 +397,7 @@ void resetElements() {
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
     chapterChange = true; // chapter change is seen
-  } else {
+  } else if (chapters == "Carry on The Legacy") {
     chapters = "The Final One"; // chapter changed to the final one
     chapterChange = true; // chapter change is seen
   }
