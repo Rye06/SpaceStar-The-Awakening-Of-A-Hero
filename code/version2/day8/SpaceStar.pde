@@ -11,8 +11,6 @@
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 
-import processing.sound.*; // imports sounds library
-
 /************************************
  ***
  Global Variables
@@ -28,11 +26,6 @@ PImage backgroundPic; // background image
 PImage[] playerBullets; // bullet image array (player)
 PImage[] enemyBullets; // bullet image array (enemy)
 PImage playButton; // play button image
-
-/** Sounds **/
-SoundFile mainGameSound; // main game sound
-SoundFile playerBulletFire; // player bullet fire sound
-SoundFile enemyLaserFire; // enemy laser sound
 
 /** Home **/
 boolean blurredHomeWanted; // checks to see if the blurred home screen is wanted or not
@@ -68,7 +61,6 @@ boolean enemyReduceLife; // reduce life of enemy or not
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
 int minAsteroidPos; // minimum position asteroid has to reach before re-generating
-boolean asteroidDoDmg; // asteroid is allowed or not to do damage
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -136,7 +128,6 @@ void setup() {
   asteroidObj = new Asteroid(width-720, height-50, 1); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
-  asteroidDoDmg = true; // asteroid is allowed to do damage
 
   /** Play Button **/
   playButton = loadImage("playButton.png"); // play button is loaded in
@@ -221,6 +212,7 @@ void home() {
   } // play button is clicked
 
   /** Current Chapter Display **/
+  textSize(18);
   text("Current Chapter: " + chapters, width-865, height-655);
 }
 
@@ -311,9 +303,18 @@ void playScreen() {
   else {
     if (chapters == "Start" || chapters == "Carry on The Legacy") {
       resetElements(); // resets the elements in the game
-      screens = "Home"; // screen is changed back to home
     } else {
-      // GAME FINISHED SCREEN
+      background(0); // background is overrided
+      textSize(30);
+      text("YOU FINISHED THE GAME! GOOD JOB", width-700, height-400); // game finished text
+      text("Press E to Exit or N to Play a New Game", width-700, height-200); // exit or not text
+      if (key == 'N' || key== 'n') {
+        resetElements(); // elements of the game are reset
+        chapters = "Start"; // chapter is changed back to start
+      } // new game
+      else if (key == 'E' || key == 'e') {
+        exit(); // exits the game
+      } // exit the game
     }
   } // enemy has died
 }
@@ -334,12 +335,11 @@ void resetElements() {
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
     chapterChange = true; // chapter change is seen
-    screens = "Home";
-  } else {
+  } else if (chapters == "Carry on The Legacy") {
     chapters = "The Final One"; // chapter changed to the final one
     chapterChange = true; // chapter change is seen
-    screens = "Home";
   }
+  screens = "Home";
 }
 
 
