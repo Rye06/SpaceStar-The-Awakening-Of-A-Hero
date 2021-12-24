@@ -394,6 +394,8 @@ void resetElements() {
   player. playerSpaceshipY =  height-250;
   playerBullet.playerBulletPosY = -50;
   asteroidDoDmg = true; // asteroid is allowed to do damage
+  doubleDmg.doubleDamageInitPos(); // double damge boost is redirected to its orignal position
+  invincible.invincibilityInitPos(); // invincibility boost is redirected to its orignal position
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
     chapterChange = true; // chapter change is seen
@@ -504,7 +506,7 @@ void keyPressed() {
   }
 
   /** Move to New Chapter Screen **/
-  if (dist(homePlanetX+320, homePlanetY+400, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 290) {
+  if (dist(homePlanetX+320, homePlanetY+400, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 270) {
     allowPlayerYMovement = false; // player y movement isnt allowed
     homePlanetY = -650; // shifts the home planet y off the screen
     resetElements(); // calls the function to reset the elements of the game
