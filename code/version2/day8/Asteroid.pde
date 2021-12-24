@@ -93,9 +93,9 @@ class Asteroid {
 
       if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
         if (chapters == "Start" && asteroidDoDmg) {
-          asteroidDmg = 5; // asteroid damage is changed to 15
+          asteroidDmg = 5; // asteroid damage is changed to 5
         } else if (chapters == "Carry on The Legacy" && asteroidDoDmg) {
-          asteroidDmg = 10; // asteroid damage is changed to 15
+          asteroidDmg = 10; // asteroid damage is changed to 10
         } else if (chapters == "The Final One" && asteroidDoDmg) {
           asteroidDmg = 15; // asteroid damage is changed to 15
         }
