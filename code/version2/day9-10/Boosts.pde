@@ -129,7 +129,7 @@ class Boosts {
      Updates Invincibility Boost Appear After Timer
      **********************************************/
 
-    if (chapters == "Start" && !allowPlayerYMovement) {
+    if (chapters == "Start") {
       invincibilityAppearAfter  = int(random(20000, 21000));
     } else if (chapters == "Carry on The Legacy") {
       invincibilityAppearAfter  = int(random(12000, 13000));
