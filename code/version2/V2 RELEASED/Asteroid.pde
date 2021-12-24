@@ -92,14 +92,16 @@ class Asteroid {
       randomAsteroidYVals[k] += asteroidSpeed; // moves the asteroid down
 
       if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
-        if (chapters == "Start" && asteroidDoDmg) {
+        if (chapters == "Start") {
           asteroidDmg = 5; // asteroid damage is changed to 15
-        } else if (chapters == "Carry on The Legacy" && asteroidDoDmg) {
+        } else if (chapters == "Carry on The Legacy") {
           asteroidDmg = 10; // asteroid damage is changed to 15
-        } else if (chapters == "The Final One" && asteroidDoDmg) {
+        } else if (chapters == "The Final One") {
           asteroidDmg = 15; // asteroid damage is changed to 15
         }
-        player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
+        if (asteroidDoDmg) {
+          player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
+        } // do damage only if asteroid is allowed to do damage
         randomAsteroidYVals[k] = -100; // shifts the asteroid off the screen
       } // collision is seen of asteroid with player's spaceship
 
@@ -118,4 +120,4 @@ class Asteroid {
 
   // ---------------------------------------------------------------------------------------------
   // ---------------------------------------------------------------------------------------------
-}  
+}
