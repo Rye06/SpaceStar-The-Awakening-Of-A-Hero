@@ -4,14 +4,9 @@
 
 The Fifteenth and Sixteenth Day, I Completed-
 
-Chapter Passed Screen:
+Play Screen: 
 
-* New Game Key
-* Continue Game Key
-
-Chapter Failed Screen:
-
-* Retry Key
+* Meteors added to the game
 
 # What am I working on? 
 
