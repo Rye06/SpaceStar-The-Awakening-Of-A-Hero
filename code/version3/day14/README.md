@@ -8,16 +8,17 @@ Chapter Passed Screen:
 
 * Chapter Passed Screen is Designed
 * Chapter Passed Screen is Implemented With a Moving Background 
+* New Game Key
+* Continue Game Key
+
 
 Chapter Failed Screen:
 
 * Chapter Failed Screen is Designed
 * Chapter Failed Screen is Implemented With a Moving Background 
+* Retry Key
 
-Play Screen: 
-
-* Meteors added to the game
 
 # What am I working on? 
 
-I am going to be working on the key presses for my two newly created screens! 
+I am going to be adding meteors to my game!
