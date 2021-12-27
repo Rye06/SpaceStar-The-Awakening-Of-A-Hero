@@ -6,12 +6,12 @@ The Fifteenth and Sixteenth Day, I Completed-
 
 Chapter Passed Screen:
 
-* New Game Button
-* Continue Game Button
+* New Game Key
+* Continue Game Key
 
 Chapter Failed Screen:
 
-* Retry Button
+* Retry Key
 
 # What am I working on? 
 
