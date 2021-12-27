@@ -6,8 +6,7 @@ The Seventeenth Day, I Completed-
 
 Play Screen:
 
-* Y-Axis Movement of the Player's Spaceship
-* Y-Axis Movement of the Player's Spaceship
+* Fixed minor bugs in the game
 
 # What am I working on? 
 
