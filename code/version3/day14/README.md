@@ -14,6 +14,9 @@ Chapter Failed Screen:
 * Chapter Failed Screen is Designed
 * Chapter Failed Screen is Implemented With a Moving Background 
 
+Play Screen: 
+
+* Meteors added to the game
 
 # What am I working on? 
 
