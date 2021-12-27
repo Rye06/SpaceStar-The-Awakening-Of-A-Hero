@@ -330,10 +330,8 @@ void playScreen() {
     text("Player Life Left: " + player.playerLifeLeft, width-860, height-50);
   } // player is alive
   else {
-    if (!(chapters == "The Final One")) {
       resetElements(); // elements of the game are reset
       chapters = "Start"; // chapter is changed back to start
-    }
   } // player has died
 
   enemyBullet.updateEnemyShootTime(); // updates the enemy shoot time
@@ -368,6 +366,7 @@ void playScreen() {
       asteroidDoDmg = false; // asteroid is not allowed to do damage
     } else {
       background(0); // background is overrided
+      obstacleDoDmg = false; // obstacles cant do damage now
       textSize(30);
       text("YOU FINISHED THE GAME! GOOD JOB", width-700, height-400); // game finished text
       text("Press E to Exit or N to Play a New Game", width-700, height-200); // exit or not text
