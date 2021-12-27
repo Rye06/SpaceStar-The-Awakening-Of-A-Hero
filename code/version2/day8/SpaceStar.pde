@@ -305,7 +305,7 @@ void playScreen() {
       resetElements(); // resets the elements in the game
     } else {
       background(0); // background is overrided
-      obstacleDoDmg = false; // obstacles cant do damage now
+      asteroidDoDmg = false; // asteroid cant do damage now
       textSize(30);
       text("YOU FINISHED THE GAME! GOOD JOB", width-700, height-400); // game finished text
       text("Press E to Exit or N to Play a New Game", width-700, height-200); // exit or not text
