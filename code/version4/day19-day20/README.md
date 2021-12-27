@@ -10,10 +10,6 @@ Game Finished Screen:
 * Deployment of The Game Finished Screen 
 * Spaceships Flying Animation
 
-Play Screen: 
-
-* Meteors added to the game
-
 # What am I working on? 
 
 I am going to be working on the game ending song along with the play again button. 
