@@ -17,4 +17,4 @@ Chapter Failed Screen:
 
 # What am I working on? 
 
-I am going to be working on the buttons for my two newly created screens!
+I am going to be working on the key presses for my two newly created screens! 
