@@ -4,12 +4,12 @@
 
 The Nineteenth and Twentieth Day, I Completed-
 
-Game Finished Screen:
+Game Over Screen:
 
-* Design of the Game Finished Screen with Colored Text and a Moving Space Background
-* Deployment of The Game Finished Screen 
+* Design of the Game Over Screen with Colored Text and a Moving Space Background
+* Deployment of The Game Over Screen 
 * Spaceships Flying Animation
 
 # What am I working on? 
 
-I am going to be working on the game ending song along with the play again key. 
+I am going to be working on the game ending song along with the play again key for the game over screen. 
