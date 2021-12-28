@@ -10,4 +10,4 @@ Game Finished Screen:
 
 # What am I working on? 
 
-I am going to be working on the game ending song, preparing for V4 release.
+I am going to be adding the game ending song, preparing for V4 release.
