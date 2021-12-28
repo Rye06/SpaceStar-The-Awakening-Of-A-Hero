@@ -8,7 +8,6 @@ Game Over Screen:
 
 * Design of the Game Over Screen with Colored Text and a Moving Space Background
 * Deployment of The Game Over Screen 
-* Spaceships Flying Animation
 
 # What am I working on? 
 
