@@ -4,7 +4,7 @@
 
 The Twenty-First Day, I Completed-
 
-Game Finished Screen:
+Game Over Screen:
 
 * Play Again Key 
 
