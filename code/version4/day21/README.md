@@ -6,7 +6,7 @@ The Twenty-First Day, I Completed-
 
 Game Over Screen:
 
-* Play Again Key 
+* Play Again Button 
 
 # What am I working on? 
 
