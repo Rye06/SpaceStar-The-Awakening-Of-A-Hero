@@ -33,8 +33,6 @@ PImage doubleDamage; // double damage image
 PImage invincibility; // invincibility image
 PImage chapterPassed; // chapter passed image
 PImage chapterFailed; // chapter failed image
-PImage newGame; // new game button
-PImage continueBtn; // continue button
 
 /** Sounds **/
 SoundFile mainGameSound; // main game sound
