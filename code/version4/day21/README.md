@@ -6,7 +6,7 @@ The Twenty-First Day, I Completed-
 
 Game Finished Screen:
 
-* Play Again Button 
+* Play Again Key 
 
 # What am I working on? 
 
