@@ -61,6 +61,7 @@ int backgroundY; // y axis of the background image
 String screens; // screens of the game
 String chapters; // chapters of the game
 boolean chapterChange; // chapter change is seen or not
+String displayChapter; // the chapter to display
 
 /** Player's Bullet **/
 Bullet playerBullet; // bullet object (player)
@@ -246,6 +247,7 @@ void draw() {
     playScreen(); // calls play screen function
   } // play screen ends
   else if (screens == "End") {
+    displayChapter = chapters; // display chapter is set to the current chapter
     endGame(); // end game function is called
   }// end screen ends
 }
@@ -485,9 +487,9 @@ void endGame() {
     } // new game key is clicked
     textSize(35);
     if (chapters == "Start") {
-      text(chapters.toUpperCase(), width-485, height-410);
+      text(displayChapter.toUpperCase(), width-485, height-410);
     } else {
-      text(chapters.toUpperCase(), width-630, height-420);
+      text(displayChapter.toUpperCase(), width-630, height-420);
     } // shows passed chapter text on the screen
   } else {
     image(chapterFailed, width-810, height-660);  // places chapter failed image on screen
@@ -500,11 +502,11 @@ void endGame() {
     } // new game key is clicked
     textSize(40);
     if (chapters == "Start") {
-      text(chapters.toUpperCase(), width-500, height-370);
+      text(displayChapter.toUpperCase(), width-500, height-370);
     } else if (chapters == "Carry on The Legacy") {
-      text(chapters.toUpperCase(), width-660, height-370);
+      text(displayChapter.toUpperCase(), width-660, height-370);
     } else {
-      text(chapters.toUpperCase(), width-600, height-370);
+      text(displayChapter.toUpperCase(), width-600, height-370);
     }// shows failed chapter text on the screen
   }
 }
