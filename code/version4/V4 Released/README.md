@@ -4,7 +4,7 @@
 
 The Twenty-Second Day, I Completed-
 
-Game Finished Screen:
+Game Over Screen:
 
 * Game Ending Song
 
