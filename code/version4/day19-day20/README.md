@@ -11,4 +11,4 @@ Game Over Screen:
 
 # What am I working on? 
 
-I am going to be developing the play again button for the game over screen. 
+I am going to be developing the new game button for the game over screen. 
