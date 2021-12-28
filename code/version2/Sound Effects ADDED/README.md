@@ -11,6 +11,10 @@ Play Screen:
 * Enemy Laser Firing Sound
 * Collision with Asteroids Sound
 
+Home Screen:
+
+* Main Game Sound
+
 NOTE: CHANGES WERE ONLY MADE TO THE MAIN- SPACESTAR CLASS
 
 # What am I working on? 
