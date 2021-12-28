@@ -8,4 +8,4 @@ The Eighteenth Day, I completed-
 
 # What am I working on? 
 
-Now, I am going to be developing version 4, starting with the deployment and production of the game finished screen.
+Now, I am going to be developing version 4, starting with the deployment and production of the game over screen.
