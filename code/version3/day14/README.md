@@ -10,14 +10,14 @@ Chapter Passed Screen:
 * Chapter Passed Screen is Implemented With a Moving Background 
 * New Game Key
 * Continue Game Key
-
+* Main Game Sound
 
 Chapter Failed Screen:
 
 * Chapter Failed Screen is Designed
 * Chapter Failed Screen is Implemented With a Moving Background 
 * Retry Key
-
+* Main Game Sound
 
 # What am I working on? 
 
