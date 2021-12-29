@@ -12,6 +12,10 @@ Help Screen:
 
 * Help Screen is created
 
+Play Screen:
+
+* Enemy Laser Damaged  Buffed (Reduced)
+
 # What am I working on? 
 
 I am going to be creating the back home button for the help screen
