@@ -7,6 +7,7 @@ The Twenty-First Day, I Completed-
 Game Over Screen:
 
 * New Game Button 
+* Exit Game Button
 
 # What am I working on? 
 
