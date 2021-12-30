@@ -2,7 +2,7 @@
 
 # What did I do?
 
-The Twenty-Second Day, I Completed-
+The Twenty-Third Day, I Completed-
 
 Home Screen:
 
