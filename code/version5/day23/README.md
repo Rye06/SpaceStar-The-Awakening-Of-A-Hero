@@ -18,4 +18,4 @@ Play Screen:
 
 # What am I working on? 
 
-I am going to be creating the back home button for the help screen
+I am going to be creating the back home button for the help screen.
