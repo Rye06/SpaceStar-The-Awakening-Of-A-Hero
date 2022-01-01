@@ -10,4 +10,4 @@ Play Screen:
 
 # What am I working on? 
 
-I am going to be preparing for the version 5 release tommorow. Happy New Year!
+I am going to be preparing for the version 5 release tommorow. 
