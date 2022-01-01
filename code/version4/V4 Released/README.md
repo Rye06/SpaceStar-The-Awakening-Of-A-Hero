@@ -6,7 +6,7 @@ The Twenty-Second Day, I Completed-
 
 Game Over Screen:
 
-* Game Ending Song
+* Death of Player Sound
 
 # What am I working on? 
 
