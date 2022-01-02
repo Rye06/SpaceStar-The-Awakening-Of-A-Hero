@@ -125,7 +125,7 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, height-50, 1); // asteroid object is created
+  asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   asteroidDoDmg = true; // asteroid is allowed to do damage
@@ -219,7 +219,7 @@ void backgroundStars() {
   image(backgroundPic, 0, backgroundY);  // draws first background image on screen
   image(backgroundPic, 0, backgroundY-backgroundPic.height); // places second background image on screen
 
-  backgroundY+=3; // scrolls through the background
+  backgroundY+=10; // scrolls through the background
 
   if (backgroundY >= backgroundPic.height) {
     backgroundY = 0;
@@ -242,7 +242,7 @@ void playScreen() {
   image(playerSpaceship, player.playerSpaceshipX, player.playerSpaceshipY); // draws the player's spaceship
   image(enemySpaceship, enemy.enemySpaceshipX, enemy.enemySpaceshipY); // draws the enemy's spaceship
 
-  enemy.moveEnemySpaceship(); // calls the function to move the enemy spaceship
+  enemy.updateEnemyMovementX(); // calls the function to move the enemy spaceship
 
   /** Asteroids **/
   asteroidObj.asteroidMechanics(); // mechanics of the asteroid
