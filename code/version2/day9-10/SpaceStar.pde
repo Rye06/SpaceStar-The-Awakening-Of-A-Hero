@@ -227,7 +227,6 @@ void home() {
       enemyCurShootTime = millis(); // enemy shoot time starts measuring the time
       doubleDmg.doubleDamageTimer = millis(); // starts the double damage appear timer
       invincible.invincibilityTimer  = millis(); // starts the invincibility appear timer
-      asteroidDoDmg = true; // asteroids can do damage now
       screens = "Play"; // changes game state
     }
   } // play button is clicked
@@ -374,6 +373,9 @@ void resetElements() {
   player.playerSpaceshipX = width-600;
   player. playerSpaceshipY =  height-250;
   playerBullet.playerBulletPosY = -50;
+  asteroidDoDmg = true; // asteroids can do damage now
+  doubleDmg.doubleDamageInitPos(); // double damge boost is redirected to its orignal position
+  invincible.invincibilityInitPos(); // invincibility boost is redirected to its orignal position
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
     chapterChange = true; // chapter change is seen
