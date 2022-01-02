@@ -85,12 +85,10 @@ boolean enemyReduceLife; // reduce life of enemy or not
 
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
-int minAsteroidPos; // minimum position asteroid has to reach before re-generating
 boolean obstacleDoDmg; // obstacles are allowed or not to do damage
 
 /** Meteor **/
 Meteor meteor; // meteor object
-int minMeteorPos; // minimum position the meteor has to reach before re-generating
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -134,9 +132,9 @@ void setup() {
   size(870, 680); // size of the window
 
   /** Loads Sounds **/
-  //mainGameSound  = new SoundFile(this, "mainGame.mp3");
-  //playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
-  //enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
+  mainGameSound  = new SoundFile(this, "mainGame.mp3");
+  playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
+  enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
 
   /** Home Screen **/
   home = loadImage("home.png"); // loads the home screen image
@@ -149,9 +147,9 @@ void setup() {
 
   /** Home Planet **/
   homePlanet = loadImage("xenoa.png"); // loads home planet image
-  homePlanet.resize(650, 650); // resizes home planet image
-  homePlanetX = width-800; // home planet x's initial position
-  homePlanetY = -650; // home planet y's initial position
+  homePlanet.resize(1500, 1000);
+  homePlanetX = width-1200; // home planet x's initial position
+  homePlanetY = -820; // home planet y's initial position
 
   /** Boosts **/
   doubleDamage = loadImage("doubleDamage.png"); // loads the double damage boost image
@@ -192,13 +190,13 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
+  asteroidObj = new Asteroid(width-720, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   obstacleDoDmg = true; // obstacles are allowed to do damage
 
   /** Meteor **/
-  meteor = new Meteor(width-720, height-50, 5); // meteor object is created
+  meteor = new Meteor(width-720, 5); // meteor object is created
   meteor.createMeteors(); // creates meteors
   meteor.initMeteorPos(); // function to randomly generate meteor y values
 
@@ -244,7 +242,7 @@ void setup() {
   gameOverPlayer.resize(200, 150); // resizes the game over player's spaceship
 
   /** Plays Main Game Sound **/
-  //mainGameSound.loop(); // loops main game sound
+  mainGameSound.loop(); // loops main game sound
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
@@ -285,8 +283,12 @@ void draw() {
     playScreen(); // calls play screen function
   } // play screen ends
   else if (screens == "End") {
-    displayChapter = chapters; // display chapter is set to the current chapter
-    endGame(); // end game function is called
+    if (chapters == "The Final One") {
+      gameOver(); // game over screen function is called
+    } else {
+      displayChapter = chapters; // display chapter is set to the current chapter
+      endGame(); // end game function is called
+    }
   }// end screen ends
 }
 
@@ -387,7 +389,7 @@ void playScreen() {
 
   /** Home Planet **/
   image(homePlanet, homePlanetX, homePlanetY); // places home planet on the screen
-  if (allowPlayerYMovement && homePlanetY <= height-950) {
+  if (allowPlayerYMovement && homePlanetY <= height-1150) {
     homePlanetY+=2;
   } // brings the home planet on the screen
 
@@ -427,7 +429,7 @@ void playScreen() {
 
     image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
 
-    //enemyLaserFire.play(); // plays enemy laser firing sound
+    enemyLaserFire.play(); // plays enemy laser firing sound
 
     enemyBullet.enemyBulletCollide(); // function to see if enemy's bullet collides with the player's spaceship
 
@@ -448,11 +450,13 @@ void playScreen() {
   } // enemy is alive
   else {
     if (chapters == "Start" || chapters == "Carry on The Legacy") {
+      screens = "End"; // screen is changed to end
+    } else {
+      textSize(17);
+      text("Use Keys W and S\nto Move Towards the\nHomeplanet- Xenoa!", width-820, height-350);  // instructions text
       enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
       allowPlayerYMovement = true; // player y movement is allowed
       obstacleDoDmg = false; // obstacles are not allowed to do damage
-    } else {
-      gameOver(); // calls game over screen function
     }
   } // enemy has died
 }
@@ -473,12 +477,11 @@ void resetElements() {
   obstacleDoDmg = true; // obstacles are allowed to do damage
   doubleDmg.doubleDamageInitPos(); // double damge boost is redirected to its orignal position
   invincible.invincibilityInitPos(); // invincibility boost is redirected to its orignal position
+  chapterChange = true; // chapter change is seen
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
-    chapterChange = true; // chapter change is seen
   } else if (chapters == "Carry on The Legacy") {
     chapters = "The Final One"; // chapter changed to the final one
-    chapterChange = true; // chapter change is seen
   }
 
   screens = "Home"; // screen is changed back to home
@@ -579,6 +582,7 @@ void gameOver() {
 }
 
 
+
 // ---------------------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------------------
 
@@ -677,11 +681,11 @@ void keyPressed() {
     }
   }
 
-  /** Move to New Chapter Screen **/
-  if (dist(homePlanetX+320, homePlanetY+400, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 270) {
+  /** Move to Game Over Screen **/
+  if (dist(homePlanetX+700, homePlanetY+735, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 185) {
+    homePlanetY = -820; // home planet is shifted off the screen
     allowPlayerYMovement = false; // player y movement isnt allowed
-    homePlanetY = -650; // shifts the home planet y off the screen
-    screens = "End"; // screen is changed to the end
+    screens = "End"; // screen is switched to end
   }
 }
 
@@ -699,7 +703,7 @@ void mouseReleased() {
     if (millis() - playerShootTime > 1000) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
-        //playerBulletFire.play(); // plays player's bullet fire sound
+        playerBulletFire.play(); // plays player's bullet fire sound
       } // shoot only if player and enemy life left are greater than 0
     } // fires the player's bullet only after 1 second of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
