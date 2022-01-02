@@ -7,8 +7,7 @@ The Second Day, I completed-
 Play Screen:
 
 * Formated the Code
-* Added a New Bullet Image
-* Worked on the Bullet Function
+* Worked on the Bullet Functioning
 
 # What am I working on? 
 
