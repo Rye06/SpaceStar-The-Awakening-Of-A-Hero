@@ -197,7 +197,7 @@ void setup() {
   chapterFailed.resize(800, 650); // resizes chapter failed image
 
   /** Plays Main Game Sound **/
-  //mainGameSound.loop(); // loops main game sound
+  mainGameSound.loop(); // loops main game sound
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
