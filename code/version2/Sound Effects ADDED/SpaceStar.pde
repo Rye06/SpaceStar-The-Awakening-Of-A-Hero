@@ -122,9 +122,9 @@ void setup() {
 
   /** Home Planet **/
   homePlanet = loadImage("xenoa.png"); // loads home planet image
-  homePlanet.resize(650, 650); // resizes home planet image
-  homePlanetX = width-800; // home planet x's initial position
-  homePlanetY = -650; // home planet y's initial position
+  homePlanet.resize(1500, 1000);
+  homePlanetX = width-1200; // home planet x's initial position
+  homePlanetY = -820; // home planet y's initial position
 
   /** Boosts **/
   doubleDamage = loadImage("doubleDamage.png"); // loads the double damage boost image
@@ -165,7 +165,7 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, height-50, 1); // asteroid object is created
+  asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   asteroidDoDmg = true; // asteroid is allowed to do damage
@@ -220,6 +220,9 @@ void draw() {
   else if (screens == "Play") {
     playScreen(); // calls play screen function
   } // play screen ends
+  else if (screens == "End") {
+    gameOver(); // game over function is called
+  } // end screen ends
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -273,7 +276,7 @@ void backgroundStars() {
   image(backgroundPic, 0, backgroundY);  // draws first background image on screen
   image(backgroundPic, 0, backgroundY-backgroundPic.height); // places second background image on screen
 
-  backgroundY+=3; // scrolls through the background
+  backgroundY+=10; // scrolls through the background
 
   if (backgroundY >= backgroundPic.height) {
     backgroundY = 0;
@@ -319,7 +322,7 @@ void playScreen() {
 
   /** Home Planet **/
   image(homePlanet, homePlanetX, homePlanetY); // places home planet on the screen
-  if (allowPlayerYMovement && homePlanetY <= height-950) {
+  if (allowPlayerYMovement && homePlanetY <= height-1150) {
     homePlanetY+=2;
   } // brings the home planet on the screen
 
@@ -345,8 +348,8 @@ void playScreen() {
     text("Player Life Left: " + player.playerLifeLeft, width-860, height-50);
   } // player is alive
   else {
-      resetElements(); // elements of the game are reset
-      chapters = "Start"; // chapter is changed back to start
+    resetElements(); // elements of the game are reset
+    chapters = "Start"; // chapter is changed back to start
   } // player has died
 
   enemyBullet.updateEnemyShootTime(); // updates the enemy shoot time
@@ -374,29 +377,21 @@ void playScreen() {
   if (enemy.enemyLifeLeft > 0) {
     textSize(14);
     fill(255);
-    text("Enemy Life Left: " + enemy.enemyLifeLeft, width-120, height-655);
+    text("Enemy Life Left: " + enemy.enemyLifeLeft, width-180, height-655);
   } // enemy is alive
   else {
     if (chapters == "Start" || chapters == "Carry on The Legacy") {
+      resetElements();
+    } else {
+      textSize(17);
+      text("Use Keys W and S\nto Move Towards the\nHomeplanet- Xenoa!", width-820, height-350);  // instructions text
       enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
       allowPlayerYMovement = true; // player y movement is allowed
-      asteroidDoDmg = false; // asteroid is not allowed to do damage
-    } else {
-      background(0); // background is overrided
-      asteroidDoDmg = false; // asteroid cant do damage now
-      textSize(30);
-      text("YOU FINISHED THE GAME! GOOD JOB", width-700, height-400); // game finished text
-      text("Press E to Exit or N to Play a New Game", width-700, height-200); // exit or not text
-      if (key == 'N' || key== 'n') {
-        resetElements(); // elements of the game are reset
-        chapters = "Start"; // chapter is changed back to start
-      } // new game
-      else if (key == 'E' || key == 'e') {
-        exit(); // exits the game
-      } // exit the game
+      asteroidDoDmg = false; // asteroids are not allowed to do damage
     }
   } // enemy has died
 }
+
 
 void resetElements() {
 
@@ -423,6 +418,25 @@ void resetElements() {
   }
 
   screens = "Home"; // screen is changed back to home
+}
+
+void gameOver() {
+
+  /****************************************************
+   Function for the Game Over Screen
+   ****************************************************/
+
+  background(0);
+  textSize(30);
+  text("YOU FINISHED THE GAME! GOOD JOB", width-700, height-400); // game finished text
+  text("Press E to Exit or N to Play a New Game", width-700, height-200); // exit or not text
+  if (key == 'N' || key== 'n') {
+    resetElements(); // elements of the game are reset
+    chapters = "Start"; // chapter is changed back to start
+  } // new game
+  else if (key == 'E' || key == 'e') {
+    exit(); // exits the game
+  } // exit the game
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -523,11 +537,11 @@ void keyPressed() {
     }
   }
 
-  /** Move to New Chapter Screen **/
-  if (dist(homePlanetX+320, homePlanetY+400, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 270) {
+  /** Move to Game Over Screen **/
+  if (dist(homePlanetX+700, homePlanetY+735, player.playerSpaceshipX+170, player.playerSpaceshipY+70) <= 185) {
+    homePlanetY = -820; // home planet is shifted off the screen
     allowPlayerYMovement = false; // player y movement isnt allowed
-    homePlanetY = -650; // shifts the home planet y off the screen
-    resetElements(); // calls the function to reset the elements of the game
+    screens = "End";
   }
 }
 
