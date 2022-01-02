@@ -16,7 +16,6 @@ class Asteroid {
    **************************************/
 
   int asteroidX; // asteroid x coordinate
-  int asteroidY; // asteroid y coordinate
   int asteroidSpeed; // speed of the asteroid
 
   ArrayList<PImage> asteroids = new ArrayList<PImage>(); // asteroids's image array list
@@ -33,10 +32,9 @@ class Asteroid {
    ***
    **************************************/
 
-  public Asteroid(int asteroidX, int asteroidY, int asteroidSpeed) {
+  public Asteroid(int asteroidX, int asteroidSpeed) {
     /** Set the Variables **/
     this.asteroidX = asteroidX;
-    this.asteroidY = asteroidY;
     this.asteroidSpeed = asteroidSpeed;
   } // asteroid constructor
 
@@ -55,10 +53,10 @@ class Asteroid {
      Creates Asteroids
      **********************************************/
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
       asteroids.add(loadImage("asteroid.png")); // adds the asteroid image to the list
       asteroids.get(i).resize(30, 30); // resizes the asteroid image
-    } // generates 5 asteroids
+    } // generates 7 asteroids
   }
 
   void initAsteroidPos() {
@@ -113,7 +111,6 @@ class Asteroid {
         for (int s = 0; s < randomAsteroidYVals.length; s++) {
           randAsteroidY(s);
         }
-        chapterChange = false; // chapter change is now false
       } // resets y asteroid position if a new chapter is seen
     }
   }
