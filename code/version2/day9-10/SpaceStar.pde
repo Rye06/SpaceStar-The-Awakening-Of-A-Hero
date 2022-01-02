@@ -65,7 +65,6 @@ boolean enemyReduceLife; // reduce life of enemy or not
 
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
-int minAsteroidPos; // minimum position asteroid has to reach before re-generating
 boolean asteroidDoDmg; // asteroids are or not allowed to do damage
 
 /** Play Button **/
@@ -140,7 +139,7 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
+  asteroidObj = new Asteroid(width-720, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   asteroidDoDmg = true; // asteroids can do damage
@@ -376,12 +375,11 @@ void resetElements() {
   asteroidDoDmg = true; // asteroids can do damage now
   doubleDmg.doubleDamageInitPos(); // double damge boost is redirected to its orignal position
   invincible.invincibilityInitPos(); // invincibility boost is redirected to its orignal position
+  chapterChange = true; // chapter change is seen
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
-    chapterChange = true; // chapter change is seen
   } else if (chapters == "Carry on The Legacy") {
     chapters = "The Final One"; // chapter changed to the final one
-    chapterChange = true; // chapter change is seen
   }
   screens = "Home";
 }
