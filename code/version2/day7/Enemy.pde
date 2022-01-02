@@ -48,7 +48,7 @@ class Enemy {
    ***
    **************************************/
 
-  void moveEnemySpaceship() {
+  void updateEnemyMovementX() {
 
     /*******************************************
      Moves the Enemy Spaceship
