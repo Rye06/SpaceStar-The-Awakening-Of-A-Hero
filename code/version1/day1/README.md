@@ -14,6 +14,6 @@ Play Screen:
 
 Currently, I am working on the bullet being fired from the player's spaceship through the "Bullet" class! Then, developing the enemy spaceship and its spawning.
 
-Apart from that, I also have the goal of-
+Apart from that, I also Have the Goal of-
 
 * Implement Enemy's Spaceship Class
