@@ -16,4 +16,4 @@ Currently, I am working on the bullet being fired from the player's spaceship th
 
 Apart from that, I also Have the Goal of-
 
-* Implement Enemy's Spaceship Class
+* Implementing Enemy's Spaceship Class
