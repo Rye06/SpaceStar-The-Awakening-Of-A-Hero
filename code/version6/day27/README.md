@@ -12,4 +12,4 @@ Chapter Passed Screen:
 
 # What am I working on? 
 
-I am going to be adding all the time for each level to display a total time taken for ALL the levels in the game finished screen. 
+I am going to be adding all the time for each level to display a total time taken for ALL the levels in the game over screen. 
