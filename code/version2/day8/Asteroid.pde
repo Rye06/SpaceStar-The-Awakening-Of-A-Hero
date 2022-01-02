@@ -55,10 +55,10 @@ class Asteroid {
      Creates Asteroids
      **********************************************/
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
       asteroids.add(loadImage("asteroid.png")); // adds the asteroid image to the list
       asteroids.get(i).resize(30, 30); // resizes the asteroid image
-    } // generates 5 asteroids
+    } // generates 7 asteroids
   }
 
   void initAsteroidPos() {
