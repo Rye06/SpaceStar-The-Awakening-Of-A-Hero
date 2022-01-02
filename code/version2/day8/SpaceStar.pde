@@ -61,7 +61,7 @@ boolean enemyReduceLife; // reduce life of enemy or not
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
 int minAsteroidPos; // minimum position asteroid has to reach before re-generating
-boolean asteroidDoDmg;
+boolean asteroidDoDmg; // asteroids are or not allowed to do damage
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
