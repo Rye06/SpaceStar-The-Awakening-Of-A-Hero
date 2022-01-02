@@ -111,7 +111,6 @@ class Asteroid {
         for (int s = 0; s < randomAsteroidYVals.length; s++) {
           randAsteroidY(s);
         }
-        chapterChange = false; // chapter change is now false
       } // resets y asteroid position if a new chapter is seen
     }
   }
