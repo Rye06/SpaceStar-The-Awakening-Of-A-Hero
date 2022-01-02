@@ -192,12 +192,12 @@ class Bullet {
           enemyBulletDamage=0; // enemy's bullet now does no damage to the player
         }
       } else if (chapters == "Carry on The Legacy") {
-        enemyBulletDamage=15;
+        enemyBulletDamage=10;
         if (invincible.invincibilityEffect) {
           enemyBulletDamage=0; // enemy's bullet now does no damage to the player
         }
       } else {
-        enemyBulletDamage=20;
+        enemyBulletDamage=15;
         if (invincible.invincibilityEffect) {
           enemyBulletDamage=0; // enemy's bullet now does no damage to the player
         }
