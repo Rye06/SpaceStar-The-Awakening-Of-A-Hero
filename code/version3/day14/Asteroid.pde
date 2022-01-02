@@ -99,7 +99,7 @@ class Asteroid {
         } else if (chapters == "The Final One") {
           asteroidDmg = 15; // asteroid damage is changed to 15
         }
-        if (obstacleDoDmg) {
+        if (asteroidDoDmg) {
           player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
         } // do damage only if obstacles are allowed to  
         randomAsteroidYVals[k] = -100; // shifts the asteroid off the screen
