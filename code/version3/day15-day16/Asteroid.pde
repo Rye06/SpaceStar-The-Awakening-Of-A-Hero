@@ -92,17 +92,30 @@ class Asteroid {
       randomAsteroidYVals[k] += asteroidSpeed; // moves the asteroid down
 
       if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
-        asteroidDmg = 5; // asteroid damage is changed to 15
+        if (chapters == "Start") {
+          asteroidDmg = 5; // asteroid damage is changed to 5
+        } else if (chapters == "Carry on The Legacy") {
+          asteroidDmg = 10; // asteroid damage is changed to 10
+        } else if (chapters == "The Final One") {
+          asteroidDmg = 15; // asteroid damage is changed to 15
+        }
         if (obstacleDoDmg) {
           player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
-        } // do damage only if asteroids are allowed to
+        } // do damage only if obstacles are allowed to	
         randomAsteroidYVals[k] = -100; // shifts the asteroid off the screen
       } // collision is seen of asteroid with player's spaceship
 
       if (randomAsteroidYVals[k] > 800) {
         randAsteroidY(k); // generates new random asteroid y value
       } // edge of screen is reached
-    } // resets y asteroid position if a new chapter is seen
+
+      if (chapterChange) {
+        for (int s = 0; s < randomAsteroidYVals.length; s++) {
+          randAsteroidY(s);
+        }
+        chapterChange = false; // chapter change is now false
+      } // resets y asteroid position if a new chapter is seen
+    }
   }
 
   // ---------------------------------------------------------------------------------------------
