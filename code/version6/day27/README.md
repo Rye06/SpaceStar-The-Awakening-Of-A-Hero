@@ -8,7 +8,7 @@ The Twenty-Seventh Day, I Completed-
 
 Chapter Passed Screen:
 
-* Time Taken for The Level
+* Time Taken for Each Level
 
 # What am I working on? 
 
