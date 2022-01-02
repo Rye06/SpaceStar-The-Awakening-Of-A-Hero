@@ -60,7 +60,6 @@ boolean enemyReduceLife; // reduce life of enemy or not
 
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
-int minAsteroidPos; // minimum position asteroid has to reach before re-generating
 boolean asteroidDoDmg; // asteroids are or not allowed to do damage
 
 /** Play Button **/
@@ -336,12 +335,11 @@ void resetElements() {
   player.playerSpaceshipX = width-600;
   player. playerSpaceshipY =  height-250;
   playerBullet.playerBulletPosY = -50;
+  chapterChange = true; // chapter change is seen
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
-    chapterChange = true; // chapter change is seen
   } else if (chapters == "Carry on The Legacy") {
     chapters = "The Final One"; // chapter changed to the final one
-    chapterChange = true; // chapter change is seen
   }
   screens = "Home";
 }
