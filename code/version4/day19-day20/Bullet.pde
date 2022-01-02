@@ -102,17 +102,17 @@ class Bullet {
     if ((playerBulletPosY >= 0 && playerBulletPosY <= enemy.enemySpaceshipY+200) && (playerBulletPosX >= enemy.enemySpaceshipX
       && playerBulletPosX <= enemy.enemySpaceshipX+250) && (enemyReduceLife)) {
       if (chapters == "Start") {
-        playerBulletDamage=100;
+        playerBulletDamage=5;
         if (doubleDmg.doubleDamageEffect) {
           playerBulletDamage=10; // player bullet's damage is doubled
         }
       } else if (chapters == "Carry on The Legacy") {
-        playerBulletDamage=100;
+        playerBulletDamage=10;
         if (doubleDmg.doubleDamageEffect) {
           playerBulletDamage=20; // player bullet's damage is doubled
         }
       } else {
-        playerBulletDamage=100;
+        playerBulletDamage=15;
         if (doubleDmg.doubleDamageEffect) {
           playerBulletDamage=30; // player bullet's damage is doubled
         }
@@ -192,12 +192,12 @@ class Bullet {
           enemyBulletDamage=0; // enemy's bullet now does no damage to the player
         }
       } else if (chapters == "Carry on The Legacy") {
-        enemyBulletDamage=15;
+        enemyBulletDamage=10;
         if (invincible.invincibilityEffect) {
           enemyBulletDamage=0; // enemy's bullet now does no damage to the player
         }
       } else {
-        enemyBulletDamage=20;
+        enemyBulletDamage=15;
         if (invincible.invincibilityEffect) {
           enemyBulletDamage=0; // enemy's bullet now does no damage to the player
         }
