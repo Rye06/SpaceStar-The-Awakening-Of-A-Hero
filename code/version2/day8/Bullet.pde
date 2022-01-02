@@ -178,11 +178,11 @@ class Bullet {
 
     if ((enemyBulletPosY >= player.playerSpaceshipY-260) && (enemyBulletPosX >= player.playerSpaceshipX && enemyBulletPosX <= player.playerSpaceshipX+380)) {
       if (chapters == "Start") {
-        enemyBulletDamage=10;
+        enemyBulletDamage=5;
       } else if (chapters == "Carry on The Legacy") {
-        enemyBulletDamage=15;
+        enemyBulletDamage=10;
       } else {
-        enemyBulletDamage=20;
+        enemyBulletDamage=15;
       }
       player.playerLifeLeft-=enemyBulletDamage; // reduces player life
     } // decreases the player's life left on collsion
