@@ -16,7 +16,6 @@ class Meteor {
    **************************************/
 
   int meteorX; // meteor x coordinate
-  int meteorY; // meteor y coordinate
   int meteorSpeed; // speed of the meteor
 
   ArrayList<PImage> meteors = new ArrayList<PImage>(); // meteor's image array list
@@ -33,10 +32,9 @@ class Meteor {
    ***
    **************************************/
 
-  public Meteor(int meteorX, int meteorY, int meteorSpeed) {
+  public Meteor(int meteorX, int meteorSpeed) {
     /** Set the Variables **/
     this.meteorX = meteorX;
-    this.meteorY = meteorY;
     this.meteorSpeed = meteorSpeed;
   } // meteor constructor
 
