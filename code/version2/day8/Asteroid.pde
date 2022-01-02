@@ -88,10 +88,10 @@ class Asteroid {
      **********************************************/
 
     for (int k = 0; k < asteroids.size(); k++) {
-      image(asteroids.get(k), asteroidX+(k*80), randomAsteroidYVals[k]); // places asteroid image on the screen
+      image(asteroids.get(k), asteroidX+(k*100), randomAsteroidYVals[k]); // places asteroid image on the screen
       randomAsteroidYVals[k] += asteroidSpeed; // moves the asteroid down
 
-      if (dist(asteroidX+(k*80), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
+      if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
         if (chapters == "Start") {
           asteroidDmg = 5; // asteroid damage is changed to 5
         } else if (chapters == "Carry on The Legacy") {
