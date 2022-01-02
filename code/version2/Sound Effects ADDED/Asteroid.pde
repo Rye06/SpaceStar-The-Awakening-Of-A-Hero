@@ -20,7 +20,7 @@ class Asteroid {
   int asteroidSpeed; // speed of the asteroid
 
   ArrayList<PImage> asteroids = new ArrayList<PImage>(); // asteroids's image array list
-  int[] randomAsteroidYVals = new int[backgroundPic.width]; // random asteroid y values\
+  int[] randomAsteroidYVals = new int[backgroundPic.width]; // random asteroid y values
 
   int asteroidDmg; // asteroid damage
 
@@ -55,10 +55,10 @@ class Asteroid {
      Creates Asteroids
      **********************************************/
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
       asteroids.add(loadImage("asteroid.png")); // adds the asteroid image to the list
       asteroids.get(i).resize(30, 30); // resizes the asteroid image
-    } // generates 5 asteroids
+    } // generates 7 asteroids
   }
 
   void initAsteroidPos() {
@@ -92,30 +92,17 @@ class Asteroid {
       randomAsteroidYVals[k] += asteroidSpeed; // moves the asteroid down
 
       if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
-        if (chapters == "Start") {
-          asteroidDmg = 5; // asteroid damage is changed to 5
-        } else if (chapters == "Carry on The Legacy") {
-          asteroidDmg = 10; // asteroid damage is changed to 10
-        } else if (chapters == "The Final One") {
-          asteroidDmg = 15; // asteroid damage is changed to 15
-        }
+        asteroidDmg = 5; // asteroid damage is changed to 15
         if (asteroidDoDmg) {
           player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
-        } // do damage only if asteroid is allowed to do damage
+        } // do damage only if asteroids are allowed to
         randomAsteroidYVals[k] = -100; // shifts the asteroid off the screen
       } // collision is seen of asteroid with player's spaceship
 
       if (randomAsteroidYVals[k] > 800) {
         randAsteroidY(k); // generates new random asteroid y value
       } // edge of screen is reached
-
-      if (chapterChange) {
-        for (int s = 0; s < randomAsteroidYVals.length; s++) {
-          randAsteroidY(s);
-        }
-        chapterChange = false; // chapter change is now false
-      } // resets y asteroid position if a new chapter is seen
-    }
+    } // resets y asteroid position if a new chapter is seen
   }
 
   // ---------------------------------------------------------------------------------------------
