@@ -156,7 +156,7 @@ void backgroundStars() {
   image(backgroundPic, 0, backgroundY);  // draws first background image on screen
   image(backgroundPic, 0, backgroundY-backgroundPic.height); // places second background image on screen
 
-  backgroundY+=3; // scrolls through the background
+  backgroundY+=10; // scrolls through the background
 
   if (backgroundY >= backgroundPic.height) {
     backgroundY = 0;
