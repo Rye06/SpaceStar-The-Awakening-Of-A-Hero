@@ -82,11 +82,7 @@ boolean enemyReduceLife; // reduce life of enemy or not
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
 int minAsteroidPos; // minimum position asteroid has to reach before re-generating
-boolean obstacleDoDmg; // obstacles are or not allowed to do damage
-
-/** Meteor **/
-Meteor meteor; // meteor object
-int minMeteorPos; // minimum position the meteor has to reach before re-generating
+boolean asteroidDoDmg; // asteroids are or not allowed to do damage
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -179,13 +175,8 @@ void setup() {
   asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
-  obstacleDoDmg = true; // obstacles are allowed to do damage
-
-  /** Meteor **/
-  meteor = new Meteor(width-720, height-50, 5); // meteor object is created
-  meteor.createMeteors(); // creates meteors
-  meteor.initMeteorPos(); // function to randomly generate meteor y values
-
+  asteroidDoDmg = true; // asteroids are allowed to do damage
+  
   /** Play Button **/
   playButton = loadImage("playButton.png"); // play button is loaded in
   playButton.resize(275, 55); // resizes the play button
@@ -362,9 +353,6 @@ void playScreen() {
   /** Asteroids **/
   asteroidObj.asteroidMechanics(); // mechanics of the asteroid
 
-  /** Meteors **/
-  meteor.meteorMechanics(); // mechanics of the meteor
-
   if (currentPlayerBullet < 6) {
 
     /** Moves the Player's Bullet **/
@@ -420,7 +408,7 @@ void playScreen() {
       text("Use Keys W and S\nto Move Towards the\nHomeplanet- Xenoa!", width-820, height-350);  // instructions text
       enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
       allowPlayerYMovement = true; // player y movement is allowed
-      obstacleDoDmg = false; // obstacles are not allowed to do damage
+      asteroidDoDmg = false; // asteroids are not allowed to do damage
     }
   } // enemy has died
 }
@@ -439,7 +427,7 @@ void resetElements() {
   player.playerSpaceshipX = width-600;
   player. playerSpaceshipY =  height-250;
   playerBullet.playerBulletPosY = -50;
-  obstacleDoDmg = true; // obstacles are allowed to do damage
+  asteroidDoDmg = true; // asteroids are allowed to do damage
   doubleDmg.doubleDamageInitPos(); // double damge boost is redirected to its orignal position
   invincible.invincibilityInitPos(); // invincibility boost is redirected to its orignal position
   if (chapters == "Start") {
