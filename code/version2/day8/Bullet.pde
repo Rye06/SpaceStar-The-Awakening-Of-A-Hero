@@ -178,7 +178,7 @@ class Bullet {
 
     if ((enemyBulletPosY >= player.playerSpaceshipY-260) && (enemyBulletPosX >= player.playerSpaceshipX && enemyBulletPosX <= player.playerSpaceshipX+380)) {
       if (chapters == "Start") {
-        enemyBulletDamage=5;
+        enemyBulletDamage=10;
       } else if (chapters == "Carry on The Legacy") {
         enemyBulletDamage=10;
       } else {
