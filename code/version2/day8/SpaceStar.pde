@@ -125,7 +125,7 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
+  asteroidObj = new Asteroid(width-720, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   asteroidDoDmg = true; // asteroids can do damage
