@@ -20,7 +20,7 @@ class Asteroid {
   int asteroidSpeed; // speed of the asteroid
 
   ArrayList<PImage> asteroids = new ArrayList<PImage>(); // asteroids's image array list
-  int[] randomAsteroidYVals = new int[backgroundPic.width]; // random asteroid y values\
+  int[] randomAsteroidYVals = new int[backgroundPic.width]; // random asteroid y values
 
   int asteroidDmg; // asteroid damage
 
@@ -55,10 +55,10 @@ class Asteroid {
      Creates Asteroids
      **********************************************/
 
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
       asteroids.add(loadImage("asteroid.png")); // adds the asteroid image to the list
       asteroids.get(i).resize(30, 30); // resizes the asteroid image
-    } // generates 5 asteroids
+    } // generates 7 asteroids
   }
 
   void initAsteroidPos() {
@@ -81,7 +81,7 @@ class Asteroid {
     randomAsteroidYVals[asteroid] = int(random(-150, -1)); // generates a new random y value for the asteroid
   }
 
-  void asteroidMechanics() {
+   void asteroidMechanics() {
 
     /**********************************************
      Mechanics of the Asteroid
