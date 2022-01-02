@@ -1,8 +1,8 @@
-# Day 22 of My Game!
+# Version 4 is RELEASED! (Day 22)
 
 # What did I do?
 
-The Twenty-Second Day, I Completed-
+The Twenty-Second Day, I completed-
 
 Game Over Screen:
 
