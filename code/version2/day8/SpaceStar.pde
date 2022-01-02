@@ -61,6 +61,7 @@ boolean enemyReduceLife; // reduce life of enemy or not
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
 int minAsteroidPos; // minimum position asteroid has to reach before re-generating
+boolean asteroidDoDmg;
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -128,6 +129,7 @@ void setup() {
   asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
+  asteroidDoDmg = true; // asteroids can do damage
 
   /** Play Button **/
   playButton = loadImage("playButton.png"); // play button is loaded in
@@ -207,6 +209,7 @@ void home() {
     if (mouseX>playButtonX && mouseX <playButtonX+playButtonW && mouseY>playButtonY && mouseY <playButtonY+playButtonH) {
       playerShootTime = millis(); // player shoot time starts measuring the time
       enemyCurShootTime = millis(); // enemy shoot time starts measuring the time
+      asteroidDoDmg = true; // asteroids can do damage now
       screens = "Play"; // changes game state
     }
   } // play button is clicked
@@ -271,8 +274,8 @@ void playScreen() {
     text("Player Life Left: " + player.playerLifeLeft, width-860, height-50);
   } // player is alive
   else {
-      resetElements(); // elements of the game are reset
-      chapters = "Start"; // chapter is changed back to start
+    resetElements(); // elements of the game are reset
+    chapters = "Start"; // chapter is changed back to start
   } // player has died
 
   enemyBullet.updateEnemyShootTime(); // updates the enemy shoot time
