@@ -83,12 +83,10 @@ boolean enemyReduceLife; // reduce life of enemy or not
 
 /** Asteroid **/
 Asteroid asteroidObj; // asteroid object
-int minAsteroidPos; // minimum position asteroid has to reach before re-generating
 boolean obstacleDoDmg; // obstacles are allowed or not to do damage
 
 /** Meteor **/
 Meteor meteor; // meteor object
-int minMeteorPos; // minimum position the meteor has to reach before re-generating
 
 /** Play Button **/
 int playButtonX; // x coordinate of the button
@@ -178,13 +176,13 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, height-50, 5); // asteroid object is created
+  asteroidObj = new Asteroid(width-720, 5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   obstacleDoDmg = true; // obstacles are allowed to do damage
 
   /** Meteor **/
-  meteor = new Meteor(width-720, height-50, 5); // meteor object is created
+  meteor = new Meteor(width-720, 5); // meteor object is created
   meteor.createMeteors(); // creates meteors
   meteor.initMeteorPos(); // function to randomly generate meteor y values
 
@@ -443,12 +441,11 @@ void resetElements() {
   obstacleDoDmg = true; // obstacles are allowed to do damage
   doubleDmg.doubleDamageInitPos(); // double damge boost is redirected to its orignal position
   invincible.invincibilityInitPos(); // invincibility boost is redirected to its orignal position
+  chapterChange = true; // chapter change is seen
   if (chapters == "Start") {
     chapters = "Carry on The Legacy"; // chapter changed to carry on the legacy
-    chapterChange = true; // chapter change is seen
   } else if (chapters == "Carry on The Legacy") {
     chapters = "The Final One"; // chapter changed to the final one
-    chapterChange = true; // chapter change is seen
   }
 
   screens = "Home"; // screen is changed back to home
