@@ -4,7 +4,7 @@
 
 The Twenty-Eighth Day, I Completed-
 
-Game Finished Screen:
+Game Over Screen:
 
 * Total Time Taken for ALL Levels Measurement
 
