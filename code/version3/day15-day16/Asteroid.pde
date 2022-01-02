@@ -101,7 +101,7 @@ class Asteroid {
         }
         if (obstacleDoDmg) {
           player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
-        } // do damage only if obstacles are allowed to	
+        } // do damage only if obstacles are allowed to  
         randomAsteroidYVals[k] = -100; // shifts the asteroid off the screen
       } // collision is seen of asteroid with player's spaceship
 
