@@ -92,7 +92,7 @@ class Asteroid {
       randomAsteroidYVals[k] += asteroidSpeed; // moves the asteroid down
 
       if (dist(asteroidX+(k*100), randomAsteroidYVals[k], player.playerSpaceshipX+185, player.playerSpaceshipY+185) <= 138) {
-        asteroidDmg = 5; // asteroid damage is changed to 15
+        asteroidDmg = 5; // asteroid damage is 5
         player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
         randomAsteroidYVals[k] = -100; // shifts the asteroid off the screen
       } // collision is seen of asteroid with player's spaceship
