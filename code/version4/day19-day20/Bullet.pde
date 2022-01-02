@@ -102,17 +102,17 @@ class Bullet {
     if ((playerBulletPosY >= 0 && playerBulletPosY <= enemy.enemySpaceshipY+200) && (playerBulletPosX >= enemy.enemySpaceshipX
       && playerBulletPosX <= enemy.enemySpaceshipX+250) && (enemyReduceLife)) {
       if (chapters == "Start") {
-        playerBulletDamage=5;
+        playerBulletDamage=100;
         if (doubleDmg.doubleDamageEffect) {
           playerBulletDamage=10; // player bullet's damage is doubled
         }
       } else if (chapters == "Carry on The Legacy") {
-        playerBulletDamage=10;
+        playerBulletDamage=100;
         if (doubleDmg.doubleDamageEffect) {
           playerBulletDamage=20; // player bullet's damage is doubled
         }
       } else {
-        playerBulletDamage=15;
+        playerBulletDamage=100;
         if (doubleDmg.doubleDamageEffect) {
           playerBulletDamage=30; // player bullet's damage is doubled
         }
