@@ -10,7 +10,7 @@ Chapter Passed Screen:
 
 * Time Taken for Each Level
 
-** Formatted the Code **
+**Formatted the Code**
 
 # What am I working on? 
 
