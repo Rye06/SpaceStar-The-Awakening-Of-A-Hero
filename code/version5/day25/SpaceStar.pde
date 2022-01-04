@@ -734,7 +734,7 @@ void keyPressed() {
     atDownFlag = true; // reaches the bottom
   } // if the player's spaceship goes extremely to the bottom off the screen
 
-  /** Makes sure the Player's Spaceship doesn't go off the screen **/
+  /** Detect if the Player's Spaceship is Moving Extremely Up or Down **/
   if (atUpFlag) {
     if (key == 'w' || key == 'W') {
       player.playerSpaceshipY -=0;
