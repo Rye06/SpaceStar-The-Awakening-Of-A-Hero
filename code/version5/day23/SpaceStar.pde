@@ -703,7 +703,7 @@ void keyPressed() {
     }
   }
 
-  /** Detect if the Player's Spaceship is Moving Extremely Right or Left **/
+  /** Detect if the Player's Spaceship is Moving Extremely Up or Down **/
   if (player.playerSpaceshipY+30 <= 0) {
     atUpFlag = true; // reaches the top
   } // if the player's spaceship goes extremely to the top off the screen
