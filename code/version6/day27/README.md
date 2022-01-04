@@ -10,6 +10,10 @@ Chapter Passed Screen:
 
 * Time Taken for Each Level
 
+Play Screen:
+
+* Varying X Values for the Asteroid and Meteor
+
 **Formatted the Code**
 
 # What am I working on? 
