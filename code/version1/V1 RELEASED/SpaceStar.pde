@@ -181,7 +181,7 @@ void backgroundStars() {
   image(backgroundPic, 0, backgroundY);  // draws first background image on screen
   image(backgroundPic, 0, backgroundY-backgroundPic.height); // places second background image on screen
 
-  backgroundY+=3; // scrolls through the background
+  backgroundY+=10; // scrolls through the background
 
   if (backgroundY >= backgroundPic.height) {
     backgroundY = 0;
@@ -204,7 +204,7 @@ void playScreen() {
   image(playerSpaceship, player.playerSpaceshipX, player.playerSpaceshipY); // draws the player's spaceship
   image(enemySpaceship, enemy.enemySpaceshipX, enemy.enemySpaceshipY); // draws the enemy's spaceship
 
-  enemy.moveEnemySpaceship(); // calls the function to move the enemy spaceship
+  enemy.updateEnemyMovementX(); // calls the function to move the enemy spaceship
 
   if (currentPlayerBullet < 6) {
 
