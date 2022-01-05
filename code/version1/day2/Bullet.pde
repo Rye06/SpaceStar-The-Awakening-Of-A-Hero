@@ -13,8 +13,8 @@ class Bullet {
      Creates a Bullet
      ***************************************/
 
-    bulletX = playerSpaceshipX + 178; // sets the initial x position of the bullet
-    bulletY = playerSpaceshipY+4; // sets the initial y position of the bullet
+    bulletX = playerSpaceshipX + 150; // sets the initial x position of the bullet
+    bulletY = playerSpaceshipY-20; // sets the initial y position of the bullet
 
     fire(bulletX, bulletY); // calls the fire function
 
@@ -27,7 +27,7 @@ class Bullet {
     /****************************************
      Fires the Bullet
      ***************************************/
- 
+
     while (bulletY > 0) {
       image(bulletPic, bulletX, bulletY);
       bulletY -= 50; // moves the bullet forward
