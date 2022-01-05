@@ -13,7 +13,7 @@ Chapter Passed Screen:
 Play Screen:
 
 * Varying X Values for the Asteroid and Meteor
-* Last Level Fixed (Too Hard)
+* Enemy Shooting Time Fixed (Too Fast)
 
 **Formatted the Code**
 
