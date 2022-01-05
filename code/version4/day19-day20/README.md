@@ -11,4 +11,4 @@ Game Over Screen:
 
 # What am I working on? 
 
-I am going to be developing the new game and exit button for the game over screen. 
+I am going to be developing the new game and exit key presses for the game over screen. 
