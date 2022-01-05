@@ -54,7 +54,7 @@ int playerCurrentBullets = 4; // current bullet
 
 void setup() {
 
-  size(900, 900); // size of the window
+  size(870, 680); // size of the window
   background(0); // color of the background
 
   /** Player's Spaceship **/
@@ -241,7 +241,7 @@ void initPlayerBullets() {
 
   for (int fill = 0; fill < 5; fill++) {
     playerBullets[fill] = loadImage("bullet.png"); // fills the array with bullet images
-    playerBullets[fill].resize(15, 40); // resizes the bullet image
+    playerBullets[fill].resize(150,150); // resizes the bullet image
   } // gives the player 5 bullets to fire
 }
 
