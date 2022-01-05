@@ -62,7 +62,7 @@ void setup() {
   playerSpaceship.resize(380, 260); // resizes the player's spaceship
 
   /** Enemy's Spaceship **/
-  enemySpaceship = loadImage("enemy.png"); // loads the enemy's spaceship
+  enemySpaceship = loadImage("enemySpaceship.png"); // loads the enemy's spaceship
   enemySpaceship.resize(250, 200); // resizes the enemy's spaceship
 
   /** Initial Coordinates of the Player's Spaceship **/
@@ -96,7 +96,7 @@ void draw() {
   backgroundStars(); // calls the background game screen function
 
   if (screens == "Home") {
-    image(home, 0, 0); // loads home screen image
+    image(home, 0, 0); // places home screen image
   } // home screen ends
   else if (screens == "Play") {
 
