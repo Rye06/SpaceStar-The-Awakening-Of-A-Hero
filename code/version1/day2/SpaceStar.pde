@@ -51,7 +51,7 @@ void setup() {
   /** Bullet Images **/
 
   bulletPic = loadImage("bullet.png"); // loads the bullets image
-  bulletPic.resize(10, 40); // resizes the bullet image
+  bulletPic.resize(150, 150);
 
   screens = "Home"; // sets the game state to the home screen
 }
