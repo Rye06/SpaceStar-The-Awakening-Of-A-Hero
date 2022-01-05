@@ -11,4 +11,4 @@ Play Screen:
 
 # What am I working on? 
 
-Currently, I am almost done with the working of the bullet being fired from the player's spaceship through the "Bullet" class! Then, I would be looking to develop the enemy spaceship and its spawning.
+Currently, I am almost done with the working of the bullet being fired from the player's spaceship. After finishing that, I am also looking to design a home screen and enable the smooth switching between the home and play screen.
