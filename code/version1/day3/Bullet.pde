@@ -48,8 +48,8 @@ class Bullet {
      Shoots the Bullet from the Player's Spaceship
      ********************************************/
 
-    playerBulletPosX =  playerSpaceshipX+175; // sets the x coordinate of the bullet to the player's spaceship x
-    playerBulletPosY =  playerSpaceshipY+4; // sets the y coordinate of the bullet to the player's spaceship y
+    playerBulletPosX =  playerSpaceshipX+150; // sets the x coordinate of the bullet to the player's spaceship x
+    playerBulletPosY =  playerSpaceshipY-20; // sets the y coordinate of the bullet to the player's spaceship y
   }
 
   // ---------------------------------------------------------------------------------------------
