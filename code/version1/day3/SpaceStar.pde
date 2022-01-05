@@ -62,7 +62,7 @@ void setup() {
   playerSpaceship.resize(380, 260); // resizes the player's spaceship
 
   /** Enemy's Spaceship **/
-  enemySpaceship = loadImage("enemy.png"); // loads the enemy's spaceship
+  enemySpaceship = loadImage("enemySpaceship.png"); // loads the enemy's spaceship
   enemySpaceship.resize(250, 200); // resizes the enemy's spaceship
 
   /** Initial Coordinates of the Player's Spaceship **/
@@ -240,7 +240,7 @@ void initPlayerBullets() {
    **********************************************/
 
   for (int fill = 0; fill < 5; fill++) {
-    playerBullets[fill] = loadImage("bullet.png"); // fills the array with bullet images
+    playerBullets[fill] = loadImage("playerBullet.png"); // fills the array with bullet images
     playerBullets[fill].resize(150,150); // resizes the bullet image
   } // gives the player 5 bullets to fire
 }
