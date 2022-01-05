@@ -16,4 +16,4 @@ Home Screen:
 
 # What am I working on? 
 
-Currently, I am fixing bugs in the firing of the bullets. Moreover, I am also working on movement of the enemy spaceship and then its ability to shoot too! After I am done with those three activities, I would be developing collision detection.
+I am fixing bugs in the firing of the bullets. Moreover, I am also working on movement of the enemy spaceship and then its ability to shoot too! After I am done with those three activities, I would be developing collision detection.
