@@ -23,6 +23,7 @@ class Bullet {
   /** Enemy Bullets **/
   int enemyBulletPosX; // x position of the enemy's bullet
   int enemyBulletPosY; // y position of the enemy's bullet
+  int enemyShootTime; // random period of time in which the enemy shoots
 
   // ---------------------------------------------------------------------------------------------
   // ---------------------------------------------------------------------------------------------
@@ -82,6 +83,8 @@ class Bullet {
      **********************************************/
 
     playerBulletSpeed--; // moves the bullet forward
+
+    playerBullet.playerBulletPosY += playerBullet.playerBulletSpeed; // moves the bullet up (player)
 
     if (screens == "Play" && playerBullet.playerBulletPosY <= minPosPlayerBulletY) {
       playerBulletSpeed = 0; // resets player's bullet speed when new bullet is generated
@@ -152,6 +155,21 @@ class Bullet {
     if ((enemyBullet.enemyBulletPosY >= player.playerSpaceshipY-260) && (enemyBullet.enemyBulletPosX >= player.playerSpaceshipX && enemyBullet.enemyBulletPosX <= player.playerSpaceshipX+380)) {
       player.playerLifeLeft-=10; // decreases the player's life left on collsion
     } // collision is seen
+  }
+
+  void updateEnemyShootTime() {
+
+    /**********************************************
+     Updates the Random Enemy Shoot Time
+     **********************************************/
+
+    if (chapters == "Start") {
+      enemyShootTime  = int(random(1300, 2100));
+    } else if (chapters == "Carry on The Legacy") {
+      enemyShootTime  = int(random(1100, 1250));
+    } else {
+      enemyShootTime  = int(random(800, 1100));
+    }
   }
 
   // ---------------------------------------------------------------------------------------------
