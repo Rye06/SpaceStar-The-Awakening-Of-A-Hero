@@ -240,7 +240,7 @@ void initPlayerBullets() {
    **********************************************/
 
   for (int fill = 0; fill < 5; fill++) {
-    playerBullets[fill] = loadImage("bullet.png"); // fills the array with bullet images
+    playerBullets[fill] = loadImage("playerBullet.png"); // fills the array with bullet images
     playerBullets[fill].resize(150, 150); // resizes the bullet image
   } // gives the player 5 bullets to fire
 }
