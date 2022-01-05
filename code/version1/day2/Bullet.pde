@@ -1,36 +1,57 @@
 /****************************************
- Bullet Class
+ ****
+ Bullet Class (Player)
+ ****
  ***************************************/
 
 class Bullet {
 
-  int bulletX; // x position of the bullet
-  int bulletY; // y position of the bullet
+  // ---------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
 
-  void newBullet() {
+  /************************************
+   ***
+   Bullet Variables
+   ***
+   **************************************/
 
-    /****************************************
-     Creates a Bullet
-     ***************************************/
+  int playerBulletPosX; // x position of the player's bullet
+  int playerBulletPosY; // y position of the player's bullet
+  int bulletSpeed; // player's bullet speed
 
-    bulletX = playerSpaceshipX + 150; // sets the initial x position of the bullet
-    bulletY = playerSpaceshipY-20; // sets the initial y position of the bullet
+  // ---------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
 
-    fire(bulletX, bulletY); // calls the fire function
+  /************************************
+   ***
+   Bullet Functions (Bullet Class)
+   ***
+   **************************************/
 
-    checkBullet = false; // sets check for new bullet to false
-  } // bullet shoots only in the play screen
+  void initBulletPos() {
 
+    /*******************************************
+     Initial Position of the Player's Bullet
+     *******************************************/
 
-  void fire(int bulletX, int bulletY) {
+    /** Initial Coordinates **/
+    playerBulletPosX = 0; // sets the initial x bullet position off the screen
+    playerBulletPosY = -40; // sets the initial y bullet position off the screen
 
-    /****************************************
-     Fires the Bullet
-     ***************************************/
-
-    while (bulletY > 0) {
-      image(bulletPic, bulletX, bulletY);
-      bulletY -= 50; // moves the bullet forward
-    }
+    /** Initial Bullet Speed **/
+    bulletSpeed = 1;
   }
+
+  void shoot() {
+
+    /*********************************************
+     Shoots the Bullet from the Player's Spaceship
+     ********************************************/
+
+    playerBulletPosX =  playerSpaceshipX+150; // sets the x coordinate of the bullet to the player's spaceship x
+    playerBulletPosY =  playerSpaceshipY-20; // sets the y coordinate of the bullet to the player's spaceship y
+  }
+
+  // ---------------------------------------------------------------------------------------------
+  // ---------------------------------------------------------------------------------------------
 }
