@@ -12,7 +12,7 @@ class Bullet {
      ***************************************/
 
     if (mousePressed && chapters == "Play") {
-      rect(playerSpaceshipX+100, playerSpaceshipY+5, playerSpaceshipX, playerSpaceshipY+15); // bullet
+      rect(playerSpaceshipX+175, playerSpaceshipY-70, 20, 100); // bullet
     }
   }
 }
