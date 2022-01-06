@@ -187,22 +187,6 @@ void setup() {
   meteor.createMeteors(); // creates meteors
   meteor.initMeteorPos(); // function to randomly generate meteor y values
 
-  /** Play Button **/
-  playButton = loadImage("playButton.png"); // play button is loaded in
-  playButton.resize(275, 55); // resizes the play button
-  playButtonX = width-545; // x coordinate of the play button initialized
-  playButtonY = height-250; // y coordinate of the play button initialized
-  playButtonW = playButton.width; // width of the play button initialized
-  playButtonH = playButton.height; // height of the play button initialized
-
-  /** Help Button **/
-  helpBtn = loadImage("helpBtn.png"); // help button is loaded in
-  helpBtn.resize(170, 40); // resizes the help button
-  helpBtnX = width-485; // x coordinate of the help button initialized
-  helpBtnY = height-175; // y coordinate of the help button initialized
-  helpBtnW = helpBtn.width; // width of the help button initialized
-  helpBtnH = helpBtn.height; // height of the help button initialized
-
   /** Load Fonts **/
   animated = createFont("minecraft.ttf", 30);
   regular = createFont("KURIERD.TTF", 30);
