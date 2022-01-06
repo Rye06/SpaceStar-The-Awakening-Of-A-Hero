@@ -97,18 +97,6 @@ boolean obstacleDoDmg; // obstacles are or not allowed to do damage
 /** Meteor **/
 Meteor meteor; // meteor object
 
-/** Play Button **/
-int playButtonX; // x coordinate of the button
-int playButtonY; // y coordinate of the button
-int playButtonW; // width of the button
-int playButtonH; // height of the button
-
-/** New Game Button **/
-int newGameX; // x coordinate of the button
-int newGameY; // y coordinate of the button
-int newGameW; // width of the button
-int newGameH; // height of the button
-
 /** Exit Button **/
 int exitBtnX; // x coordinate of the button
 int exitBtnY; // y coordinate of the button
@@ -207,22 +195,6 @@ void setup() {
   playButtonW = playButton.width; // width of the play button initialized
   playButtonH = playButton.height; // height of the play button initialized
 
-  /** New Game Button **/
-  newGameBtn = loadImage("newGameBtn.png"); // new game button is loaded in
-  newGameBtn.resize(275, 55); // resizes the new game button
-  newGameX = width-550; // x coordinate of the new game button initialized
-  newGameY = height-175; // y coordinate of the new game button initialized
-  newGameW = newGameBtn.width; // width of the new game  button initialized
-  newGameH = newGameBtn.height; // height of the new game button initialized
-
-  /** Exit Button **/
-  exitBtn = loadImage("exitBtn.png"); // exit button is loaded in
-  exitBtn.resize(200, 55); // resizes the exit button
-  exitBtnX = width-500; // x coordinate of the exit button initialized
-  exitBtnY = height-85; // y coordinate of the exit button initialized
-  exitBtnW = exitBtn.width; // width of the exit button initialized
-  exitBtnH = exitBtn.height; // height of the exit button initialized
-
   /** Help Button **/
   helpBtn = loadImage("helpBtn.png"); // help button is loaded in
   helpBtn.resize(170, 40); // resizes the help button
@@ -317,13 +289,12 @@ void draw() {
     helpScreen(); // calls help screen function
   } // help screen ends
   else if (screens == "End") {
-    if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      displayChapter = chapters; // display chapter is set to the current chapter
-      endGame(); // end game function is called
-    } else {
+    if (player.playerLifeLeft > 0 && chapters == "The Final One") {
       gameOver(); // game over function is called
+    } else {
+      endGame(); // end game function is called
     }
-  }// end screen ends
+  } // end screen ends
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -627,17 +598,23 @@ void gameOver() {
   textSize(40);
   text("You are the Next SpaceStar..", width-730, height-300);
   text(finalName, width-450, height-250);
-  image(newGameBtn, newGameX, newGameY); // new game button is loaded in
-  image(exitBtn, exitBtnX, exitBtnY); // exit button is loaded in
-  if (mousePressed) {
-    if (mouseX>newGameX && mouseX <newGameX+newGameW && mouseY>newGameY && mouseY <newGameY+newGameH) {
-      resetElements(); // calls the function to reset the elements of the game
-      chapters = "Start"; // chapter is changed
-    } // new game button is clicked
-    else if (mouseX>exitBtnX && mouseX <exitBtnX+exitBtnW && mouseY>exitBtnY && mouseY <exitBtnY+exitBtnH) {
-      exit(); // exits the game
-    } // exit button is clicked
-  } // button is clicked
+ 
+  textFont(animated);
+  textSize(30);
+  fill(#00FF00);
+  text("Press N to Play a New Game", width-620, height-180); // continue the game text
+  fill(#FF0000);
+  text("Press E to Exit the Game", width-600, height-120); // continue the game text
+  textSize(25);
+  fill(#FFFF00);
+ 
+  if (key == 'N' || key == 'n') {
+    resetElements(); // calls the function to reset the elements of the game
+    chapters = "Start"; // chapter is changed
+  } // new game key is clicked
+  else if (key == 'E' || key == 'e') {
+    exit(); // exits the game
+  } // exit key is clicked
 }
 
 
