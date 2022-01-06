@@ -65,7 +65,6 @@ int backgroundY; // y axis of the background image
 String screens; // screens of the game
 String chapters; // chapters of the game
 boolean chapterChange; // chapter change is seen or not
-String displayChapter; // the chapter to display
 
 /** Player's Bullet **/
 Bullet playerBullet; // bullet object (player)
