@@ -148,7 +148,7 @@ void setup() {
   invincible.invincibilityInitPos(); // initial invincible boost position
 
   /** Player **/
-  player = new Player(100, width-600, height-250);
+  player = new Player(100, width-600, height-250, 1);
   playerSpaceship = loadImage("playerSpaceship.png"); // loads the player's spaceship
   playerSpaceship.resize(380, 260); // resizes the player's spaceship
   allowPlayerYMovement = false; // player y movement isnt allowed
@@ -176,13 +176,13 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, 5); // asteroid object is created
+  asteroidObj = new Asteroid(5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   obstacleDoDmg = true; // obstacles are allowed to do damage
 
   /** Meteor **/
-  meteor = new Meteor(width-720, 5); // meteor object is created
+  meteor = new Meteor(5); // meteor object is created
   meteor.createMeteors(); // creates meteors
   meteor.initMeteorPos(); // function to randomly generate meteor y values
 
@@ -253,13 +253,12 @@ void draw() {
     playScreen(); // calls play screen function
   } // play screen ends
   else if (screens == "End") {
-    if (chapters == "The Final One") {
-      gameOver(); // game over screen function is called
+    if (player.playerLifeLeft > 0 && chapters == "The Final One") {
+      gameOver(); // game over function is called
     } else {
-      displayChapter = chapters; // display chapter is set to the current chapter
       endGame(); // end game function is called
     }
-  }// end screen ends
+  } // end screen ends
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -487,9 +486,9 @@ void endGame() {
     } // new game key is clicked
     textSize(35);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-485, height-410);
+      text(chapters.toUpperCase(), width-485, height-410);
     } else {
-      text(displayChapter.toUpperCase(), width-630, height-420);
+      text(chapters.toUpperCase(), width-630, height-420);
     } // shows passed chapter text on the screen
   } else {
     image(chapterFailed, width-810, height-660);  // places chapter failed image on screen
@@ -502,11 +501,11 @@ void endGame() {
     } // new game key is clicked
     textSize(40);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-500, height-370);
+      text(chapters.toUpperCase(), width-500, height-370);
     } else if (chapters == "Carry on The Legacy") {
-      text(displayChapter.toUpperCase(), width-660, height-370);
+      text(chapters.toUpperCase(), width-660, height-370);
     } else {
-      text(displayChapter.toUpperCase(), width-600, height-370);
+      text(chapters.toUpperCase(), width-600, height-370);
     }// shows failed chapter text on the screen
   }
 }
