@@ -14,6 +14,9 @@ Play Screen:
 
 * Varying X Values for the Asteroid and Meteor
 * Enemy Shooting Time Fixed (Too Fast)
+* Asteroid Damage and Number Reduced 
+* Y-Axis Movement of the Player (reduction of player and enemy spaceship sizes)
+* Health Bar
 
 **Formatted the Code**
 
