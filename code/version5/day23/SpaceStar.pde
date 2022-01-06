@@ -97,11 +97,11 @@ boolean obstacleDoDmg; // obstacles are or not allowed to do damage
 /** Meteor **/
 Meteor meteor; // meteor object
 
-/** Exit Button **/
-int exitBtnX; // x coordinate of the button
-int exitBtnY; // y coordinate of the button
-int exitBtnW; // width of the button
-int exitBtnH; // height of the button
+/** Play Button **/
+int playButtonX; // x coordinate of the button
+int playButtonY; // y coordinate of the button
+int playButtonW; // width of the button
+int playButtonH; // height of the button
 
 /** Help Button **/
 int helpBtnX; // x coordinate of the button
@@ -177,15 +177,31 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, 5); // asteroid object is created
+  asteroidObj = new Asteroid(5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   obstacleDoDmg = true; // obstacles are allowed to do damage
 
   /** Meteor **/
-  meteor = new Meteor(width-720, 5); // meteor object is created
+  meteor = new Meteor(5); // meteor object is created
   meteor.createMeteors(); // creates meteors
   meteor.initMeteorPos(); // function to randomly generate meteor y values
+
+  /** Play Button **/
+  playButton = loadImage("playButton.png"); // play button is loaded in
+  playButton.resize(275, 55); // resizes the play button
+  playButtonX = width-545; // x coordinate of the play button initialized
+  playButtonY = height-250; // y coordinate of the play button initialized
+  playButtonW = playButton.width; // width of the play button initialized
+  playButtonH = playButton.height; // height of the play button initialized
+
+  /** Help Button **/
+  helpBtn = loadImage("helpBtn.png"); // help button is loaded in
+  helpBtn.resize(170, 40); // resizes the help button
+  helpBtnX = width-485; // x coordinate of the help button initialized
+  helpBtnY = height-175; // y coordinate of the help button initialized
+  helpBtnW = helpBtn.width; // width of the help button initialized
+  helpBtnH = helpBtn.height; // height of the help button initialized
 
   /** Load Fonts **/
   animated = createFont("minecraft.ttf", 30);
@@ -531,9 +547,9 @@ void endGame() {
     } // new game key is clicked
     textSize(35);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-485, height-410);
+      text(chapters.toUpperCase(), width-485, height-410);
     } else {
-      text(displayChapter.toUpperCase(), width-630, height-420);
+      text(chapters.toUpperCase(), width-630, height-420);
     } // shows passed chapter text on the screen
   } else {
     image(chapterFailed, width-810, height-660);  // places chapter failed image on screen
@@ -546,11 +562,11 @@ void endGame() {
     } // new game key is clicked
     textSize(40);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-500, height-370);
+      text(chapters.toUpperCase(), width-500, height-370);
     } else if (chapters == "Carry on The Legacy") {
-      text(displayChapter.toUpperCase(), width-660, height-370);
+      text(chapters.toUpperCase(), width-660, height-370);
     } else {
-      text(displayChapter.toUpperCase(), width-600, height-370);
+      text(chapters.toUpperCase(), width-600, height-370);
     }// shows failed chapter text on the screen
   }
 }
@@ -582,7 +598,7 @@ void gameOver() {
   textSize(40);
   text("You are the Next SpaceStar..", width-730, height-300);
   text(finalName, width-450, height-250);
- 
+
   textFont(animated);
   textSize(30);
   fill(#00FF00);
@@ -591,7 +607,7 @@ void gameOver() {
   text("Press E to Exit the Game", width-600, height-120); // continue the game text
   textSize(25);
   fill(#FFFF00);
- 
+
   if (key == 'N' || key == 'n') {
     resetElements(); // calls the function to reset the elements of the game
     chapters = "Start"; // chapter is changed
