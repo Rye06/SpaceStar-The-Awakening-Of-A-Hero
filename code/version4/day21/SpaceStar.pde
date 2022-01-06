@@ -96,18 +96,6 @@ int playButtonY; // y coordinate of the button
 int playButtonW; // width of the button
 int playButtonH; // height of the button
 
-/** New Game Button **/
-int newGameX; // x coordinate of the button
-int newGameY; // y coordinate of the button
-int newGameW; // width of the button
-int newGameH; // height of the button
-
-/** Exit Button **/
-int exitBtnX; // x coordinate of the button
-int exitBtnY; // y coordinate of the button
-int exitBtnW; // width of the button
-int exitBtnH; // height of the button
-
 /** Fonts **/
 PFont animated; // animated font
 PFont regular; // regular font
@@ -162,7 +150,7 @@ void setup() {
   invincible.invincibilityInitPos(); // initial invincible boost position
 
   /** Player **/
-  player = new Player(100, width-600, height-250);
+  player = new Player(100, width-600, height-250, 2);
   playerSpaceship = loadImage("playerSpaceship.png"); // loads the player's spaceship
   playerSpaceship.resize(380, 260); // resizes the player's spaceship
   allowPlayerYMovement = false; // player y movement isnt allowed
@@ -190,13 +178,13 @@ void setup() {
   enemyReduceLife = true; // allowed to reduce enemy's life
 
   /** Asteroid **/
-  asteroidObj = new Asteroid(width-720, 5); // asteroid object is created
+  asteroidObj = new Asteroid(5); // asteroid object is created
   asteroidObj.createAsteroids(); // creates asteroids
   asteroidObj.initAsteroidPos(); // function to randomly generate asteroid y values
   obstacleDoDmg = true; // obstacles are allowed to do damage
 
   /** Meteor **/
-  meteor = new Meteor(width-720, 5); // meteor object is created
+  meteor = new Meteor(5); // meteor object is created
   meteor.createMeteors(); // creates meteors
   meteor.initMeteorPos(); // function to randomly generate meteor y values
 
@@ -207,22 +195,6 @@ void setup() {
   playButtonY = height-250; // y coordinate of the play button initialized
   playButtonW = playButton.width; // width of the play button initialized
   playButtonH = playButton.height; // height of the play button initialized
-
-  /** New Game Button **/
-  newGameBtn = loadImage("newGameBtn.png"); // new game button is loaded in
-  newGameBtn.resize(275, 55); // resizes the new game button
-  newGameX = width-550; // x coordinate of the new game button initialized
-  newGameY = height-175; // y coordinate of the new game button initialized
-  newGameW = newGameBtn.width; // width of the new game  button initialized
-  newGameH = newGameBtn.height; // height of the new game button initialized
-
-  /** Exit Button **/
-  exitBtn = loadImage("exitBtn.png"); // exit button is loaded in
-  exitBtn.resize(200, 55); // resizes the exit button
-  exitBtnX = width-500; // x coordinate of the exit button initialized
-  exitBtnY = height-85; // y coordinate of the exit button initialized
-  exitBtnW = exitBtn.width; // width of the exit button initialized
-  exitBtnH = exitBtn.height; // height of the exit button initialized
 
   /** Load Fonts **/
   animated = createFont("minecraft.ttf", 30);
@@ -283,13 +255,12 @@ void draw() {
     playScreen(); // calls play screen function
   } // play screen ends
   else if (screens == "End") {
-    if (chapters == "The Final One") {
-      gameOver(); // game over screen function is called
+    if (player.playerLifeLeft > 0 && chapters == "The Final One") {
+      gameOver(); // game over function is called
     } else {
-      displayChapter = chapters; // display chapter is set to the current chapter
       endGame(); // end game function is called
     }
-  }// end screen ends
+  } // end screen ends
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -517,9 +488,9 @@ void endGame() {
     } // new game key is clicked
     textSize(35);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-485, height-410);
+      text(chapters.toUpperCase(), width-485, height-410);
     } else {
-      text(displayChapter.toUpperCase(), width-630, height-420);
+      text(chapters.toUpperCase(), width-630, height-420);
     } // shows passed chapter text on the screen
   } else {
     image(chapterFailed, width-810, height-660);  // places chapter failed image on screen
@@ -532,11 +503,11 @@ void endGame() {
     } // new game key is clicked
     textSize(40);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-500, height-370);
+      text(chapters.toUpperCase(), width-500, height-370);
     } else if (chapters == "Carry on The Legacy") {
-      text(displayChapter.toUpperCase(), width-660, height-370);
+      text(chapters.toUpperCase(), width-660, height-370);
     } else {
-      text(displayChapter.toUpperCase(), width-600, height-370);
+      text(chapters.toUpperCase(), width-600, height-370);
     }// shows failed chapter text on the screen
   }
 }
@@ -568,17 +539,23 @@ void gameOver() {
   textSize(40);
   text("You are the Next SpaceStar..", width-730, height-300);
   text(finalName, width-450, height-250);
-  image(newGameBtn, newGameX, newGameY); // new game button is loaded in
-  image(exitBtn, exitBtnX, exitBtnY); // exit button is loaded in
-  if (mousePressed) {
-    if (mouseX>newGameX && mouseX <newGameX+newGameW && mouseY>newGameY && mouseY <newGameY+newGameH) {
-      resetElements(); // calls the function to reset the elements of the game
-      chapters = "Start"; // chapter is changed
-    } // new game button is clicked
-    else if (mouseX>exitBtnX && mouseX <exitBtnX+exitBtnW && mouseY>exitBtnY && mouseY <exitBtnY+exitBtnH) {
-      exit(); // exits the game
-    } // exit button is clicked
-  } // button is clicked
+
+  textFont(animated);
+  textSize(30);
+  fill(#00FF00);
+  text("Press N to Play a New Game", width-620, height-180); // continue the game text
+  fill(#FF0000);
+  text("Press E to Exit the Game", width-600, height-120); // continue the game text
+  textSize(25);
+  fill(#FFFF00);
+
+  if (key == 'N' || key == 'n') {
+    resetElements(); // calls the function to reset the elements of the game
+    chapters = "Start"; // chapter is changed
+  } // new game key is clicked
+  else if (key == 'E' || key == 'e') {
+    exit(); // exits the game
+  } // exit key is clicked
 }
 
 
