@@ -73,7 +73,6 @@ int backgroundY; // y axis of the background image
 String screens; // screens of the game
 String chapters; // chapters of the game
 boolean chapterChange; // chapter change is seen or not
-String displayChapter; // the chapter to display
 
 /** Player's Bullet **/
 Bullet playerBullet; // bullet object (player)
@@ -103,18 +102,6 @@ int playButtonX; // x coordinate of the button
 int playButtonY; // y coordinate of the button
 int playButtonW; // width of the button
 int playButtonH; // height of the button
-
-/** New Game Button **/
-int newGameX; // x coordinate of the button
-int newGameY; // y coordinate of the button
-int newGameW; // width of the button
-int newGameH; // height of the button
-
-/** Exit Button **/
-int exitBtnX; // x coordinate of the button
-int exitBtnY; // y coordinate of the button
-int exitBtnW; // width of the button
-int exitBtnH; // height of the button
 
 /** Help Button **/
 int helpBtnX; // x coordinate of the button
@@ -213,22 +200,6 @@ void setup() {
   playButtonY = height-250; // y coordinate of the play button initialized
   playButtonW = playButton.width; // width of the play button initialized
   playButtonH = playButton.height; // height of the play button initialized
-
-  /** New Game Button **/
-  newGameBtn = loadImage("newGameBtn.png"); // new game button is loaded in
-  newGameBtn.resize(275, 55); // resizes the new game button
-  newGameX = width-550; // x coordinate of the new game button initialized
-  newGameY = height-175; // y coordinate of the new game button initialized
-  newGameW = newGameBtn.width; // width of the new game  button initialized
-  newGameH = newGameBtn.height; // height of the new game button initialized
-
-  /** Exit Button **/
-  exitBtn = loadImage("exitBtn.png"); // exit button is loaded in
-  exitBtn.resize(200, 55); // resizes the exit button
-  exitBtnX = width-500; // x coordinate of the exit button initialized
-  exitBtnY = height-85; // y coordinate of the exit button initialized
-  exitBtnW = exitBtn.width; // width of the exit button initialized
-  exitBtnH = exitBtn.height; // height of the exit button initialized
 
   /** Help Button **/
   helpBtn = loadImage("helpBtn.png"); // help button is loaded in
@@ -332,13 +303,12 @@ void draw() {
     helpScreen(); // calls help screen function
   } // help screen ends
   else if (screens == "End") {
-    if (chapters == "Start" || chapters == "Carry on The Legacy") {
-      displayChapter = chapters; // display chapter is set to the current chapter
-      endGame(); // end game function is called
-    } else {
+    if (player.playerLifeLeft > 0 && chapters == "The Final One") {
       gameOver(); // game over function is called
+    } else {
+      endGame(); // end game function is called
     }
-  }// end screen ends
+  } // end screen ends
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -599,9 +569,9 @@ void endGame() {
     } // new game key is clicked
     textSize(35);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-485, height-410);
+      text(chapters.toUpperCase(), width-485, height-410);
     } else {
-      text(displayChapter.toUpperCase(), width-630, height-420);
+      text(chapters.toUpperCase(), width-630, height-420);
     } // shows passed chapter text on the screen
   } else {
     image(chapterFailed, width-810, height-660);  // places chapter failed image on screen
@@ -614,11 +584,11 @@ void endGame() {
     } // new game key is clicked
     textSize(40);
     if (chapters == "Start") {
-      text(displayChapter.toUpperCase(), width-500, height-370);
+      text(chapters.toUpperCase(), width-500, height-370);
     } else if (chapters == "Carry on The Legacy") {
-      text(displayChapter.toUpperCase(), width-660, height-370);
+      text(chapters.toUpperCase(), width-660, height-370);
     } else {
-      text(displayChapter.toUpperCase(), width-600, height-370);
+      text(chapters.toUpperCase(), width-600, height-370);
     }// shows failed chapter text on the screen
   }
 }
@@ -650,17 +620,24 @@ void gameOver() {
   textSize(40);
   text("You are the Next SpaceStar..", width-730, height-300);
   text(finalName, width-450, height-250);
-  image(newGameBtn, newGameX, newGameY); // new game button is loaded in
-  image(exitBtn, exitBtnX, exitBtnY); // exit button is loaded in
-  if (mousePressed) {
-    if (mouseX>newGameX && mouseX <newGameX+newGameW && mouseY>newGameY && mouseY <newGameY+newGameH) {
-      resetElements(); // calls the function to reset the elements of the game
-      chapters = "Start"; // chapter is changed
-    } // new game button is clicked
-    else if (mouseX>exitBtnX && mouseX <exitBtnX+exitBtnW && mouseY>exitBtnY && mouseY <exitBtnY+exitBtnH) {
-      exit(); // exits the game
-    } // exit button is clicked
-  } // button is clicked
+
+  textFont(animated);
+  textSize(30);
+  fill(#00FF00);
+  text("Press N to Play a New Game", width-620, height-180); // continue the game text
+  fill(#FF0000);
+  text("Press E to Exit the Game", width-600, height-120); // continue the game text
+  textSize(25);
+  fill(#FFFF00);
+  text("Total Time Taken: " + " seconds", width-590, height-50); // total time taken
+
+  if (key == 'N' || key == 'n') {
+    resetElements(); // calls the function to reset the elements of the game
+    chapters = "Start"; // chapter is changed
+  } // new game key is clicked
+  else if (key == 'E' || key == 'e') {
+    exit(); // exits the game
+  } // exit key is clicked
 }
 
 
@@ -726,7 +703,7 @@ void keyPressed() {
     }
   }
 
-  /** Detect if the Player's Spaceship is Moving Extremely Right or Left **/
+  /** Detect if the Player's Spaceship is Moving Extremely Up or Down **/
   if (player.playerSpaceshipY+30 <= 0) {
     atUpFlag = true; // reaches the top
   } // if the player's spaceship goes extremely to the top off the screen
@@ -734,7 +711,7 @@ void keyPressed() {
     atDownFlag = true; // reaches the bottom
   } // if the player's spaceship goes extremely to the bottom off the screen
 
-  /** Detect if the Player's Spaceship is Moving Extremely Up or Down **/
+  /** Makes sure the Player's Spaceship doesn't go off the screen **/
   if (atUpFlag) {
     if (key == 'w' || key == 'W') {
       player.playerSpaceshipY -=0;
