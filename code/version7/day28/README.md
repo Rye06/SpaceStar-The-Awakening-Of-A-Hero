@@ -7,7 +7,3 @@ The Twenty-Eighth Day, I Completed-
 Play Screen:
 
 * Cutscenes
-
-# What am I working on? 
-
-
