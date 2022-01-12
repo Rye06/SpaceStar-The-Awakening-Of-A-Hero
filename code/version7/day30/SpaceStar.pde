@@ -74,6 +74,7 @@ int backgroundY; // y axis of the background image
 String screens; // screens of the game
 String chapters; // chapters of the game
 boolean win; // player has won or not
+boolean newGame; // new game key is clicked
 
 /** Player's Bullet **/
 Bullet playerBullet; // bullet object (player)
@@ -156,10 +157,10 @@ void setup() {
   size(870, 680); // size of the window
 
   /** Loads Sounds **/
-  mainGameSound  = new SoundFile(this, "mainGame.mp3");
-  playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
-  enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
-  death = new SoundFile(this, "death.mp3");
+  //mainGameSound  = new SoundFile(this, "mainGame.mp3");
+  //playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
+  //enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
+  //death = new SoundFile(this, "death.mp3");
 
   /** Background of the Game **/
   backgroundPic = loadImage("background.png"); // loads the background image
@@ -260,6 +261,7 @@ void setup() {
   gameOverPlayer = loadImage("playerSpaceship.png"); // loads game over player spaceship
   gameOverPlayer.resize(200, 150); // resizes the game over player's spaceship
   win = false; // player hasnt won yet
+  newGame = false;  // no new game is seen
 
   /** Boosts **/
   doubleDamage = loadImage("doubleDamage.png"); // loads the double damage boost image
@@ -288,7 +290,7 @@ void setup() {
   cutscene2 = loadImage("cutscene2.png");
 
   /** Plays Main Game Sound **/
-  mainGameSound.loop(); // loops main game sound
+  //mainGameSound.loop(); // loops main game sound
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
@@ -359,6 +361,11 @@ void home() {
 
   /** Home Screen Image **/
   image(home, 0, 0);
+
+  if (newGame) {
+    chapters = "Start"; // chapters is start
+    newGame = false; // no new game is seen
+  } // new game is seen
 
   if (win) {
     if (chapters == "Start") {
@@ -534,7 +541,7 @@ void playScreen() {
     rect(width-860, height-50, rectWidth, 30);
   } // player is alive
   else {
-    death.play(); // plays death of player sound
+    //death.play(); // plays death of player sound
     screens = "End"; // changes game state
   } // player has died
 
@@ -548,7 +555,7 @@ void playScreen() {
 
     image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
 
-    enemyLaserFire.play(); // plays enemy laser firing sound
+    //enemyLaserFire.play(); // plays enemy laser firing sound
 
     enemyBullet.enemyBulletCollide(); // function to see if enemy's bullet collides with the player's spaceship
 
@@ -595,9 +602,11 @@ void playScreen() {
     } // updates timers
     if (chapters == "Start" || chapters == "Carry on The Legacy") {
       if (chapters == "Start") {
-        image(cutscene1, 0, 0); // cutscene 1 image
+        enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
+        image(cutscene1, player.playerSpaceshipX-130, player.playerSpaceshipY-220); // cutscene 1 image
       } else {
-        image(cutscene2, 0, 0); // cutscene 2 image
+        enemy.enemySpaceshipY = -500; // moves the enemy spaceship off the screen
+        image(cutscene2, player.playerSpaceshipX-130, player.playerSpaceshipY-220); // cutscene 2 image
       }
       obstacleDoDmg = false; // obstacles cant do damage
       image(continueBtn, continueBtnX, continueBtnY); // continue button on screen
@@ -638,7 +647,7 @@ void resetElements() {
   health.healthInitPos(); // health boost is redirected to its orignal position
   asteroidObj.initAsteroidPos();
   meteor.initMeteorPos();
-  if (chapters == "Start" || chapters == "Carry on The Legacy") {
+  if ((chapters == "Start" || chapters == "Carry on The Legacy") && !newGame) {
     win = true;
   } // player has won a round
 
@@ -672,8 +681,8 @@ void endGame() {
       resetElements(); // calls the function to reset the elements of the game
     } // continue game key is clicked
     else if (key == 'N' || key == 'n') {
+      newGame = true;
       resetElements(); // calls the function to reset the elements of the game
-      chapters = "Start"; // chapter is changed
     } // new game key is clicked
     textSize(35);
     if (chapters == "Start") {
@@ -687,8 +696,8 @@ void endGame() {
     textSize(30);
     text("Press N to Play a New Game", width-620, height-180); // new game text
     if (key == 'N' || key == 'n') {
+      newGame = true;
       resetElements(); // calls the function to reset the elements of the game
-      chapters = "Start"; // chapter is changed
     } // new game key is clicked
     textSize(40);
     if (chapters == "Start") {
@@ -874,7 +883,7 @@ void mouseReleased() {
     if (millis() - playerShootTime > 1000) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
-        playerBulletFire.play(); // plays player's bullet fire sound
+        //playerBulletFire.play(); // plays player's bullet fire sound
       } // shoot only if player and enemy life left are greater than 0
     } // fires the player's bullet only after 1 second of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
