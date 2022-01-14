@@ -90,11 +90,11 @@ class Asteroid {
 
       if (dist(randomAsteroidXVals[k], randomAsteroidYVals[k], player.playerSpaceshipX+135, player.playerSpaceshipY+125) <= 111) {
         if (chapters == "Start") {
-          asteroidDmg = 2; // asteroid damage is changed to 5
+          asteroidDmg = 2; // asteroid damage is changed to 2
         } else if (chapters == "Carry on The Legacy") {
-          asteroidDmg = 4; // asteroid damage is changed to 10
+          asteroidDmg = 3; // asteroid damage is changed to 3
         } else if (chapters == "The Final One") {
-          asteroidDmg = 6; // asteroid damage is changed to 15
+          asteroidDmg = 5; // asteroid damage is changed to 5
         }
         if (obstacleDoDmg) {
           player.playerLifeLeft-=asteroidDmg; // decreases the player's life left on collsion
