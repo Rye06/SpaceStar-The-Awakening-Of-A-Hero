@@ -40,8 +40,8 @@ PImage gameOverPlayer; // game over player's spaceship
 PImage helpBtn; // help button
 PImage backHomeBtn; // back home button
 PImage helpScreen; // help screen image
-PImage cutscene1; // cutscene 2 image
-PImage cutscene2; // cutscene 1 image
+PImage cutscene1; // cutscene 1 image
+PImage cutscene2; // cutscene 2 image
 PImage continueBtn; // continue button
 
 /** Sounds **/
