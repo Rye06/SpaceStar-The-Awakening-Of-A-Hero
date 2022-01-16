@@ -18,7 +18,6 @@
  **************************************/
 
 /** Images in the Game **/
-PImage home; // home screen image
 PImage playerSpaceship; // player's spaceship
 PImage backgroundPic; // background image
 PImage bulletPic; // bullet image
@@ -73,8 +72,6 @@ void setup() {
   backgroundPic = loadImage("background.png"); // loads the background image
   backgroundY = 0; // y coordinate of the background
 
-  /** Home Screen **/
-  home = loadImage("home.png"); // loads the home screen image
 
   /** Bullet **/
   playerInitalBulletPos(); // sets initial bullet position
@@ -95,10 +92,7 @@ void draw() {
 
   backgroundStars(); // calls the background game screen function
 
-  if (screens == "Home") {
-    image(home, 0, 0); // places home screen image
-  } // home screen ends
-  else if (screens == "Play") {
+  if (screens == "Play") {
 
     playScreen(); // calls play screen function
 
