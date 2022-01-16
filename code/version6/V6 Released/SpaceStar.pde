@@ -147,10 +147,10 @@ void setup() {
   size(870, 680); // size of the window
 
   /** Loads Sounds **/
-  //mainGameSound  = new SoundFile(this, "mainGame.mp3");
-  //playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
-  //enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
-  //death = new SoundFile(this, "death.mp3");
+  mainGameSound  = new SoundFile(this, "mainGame.mp3");
+  playerBulletFire = new SoundFile(this, "playerBulletFire.mp3");
+  enemyLaserFire = new SoundFile(this, "enemyLaserFire.mp3");
+  death = new SoundFile(this, "death.mp3");
 
   /** Background of the Game **/
   backgroundPic = loadImage("background.png"); // loads the background image
@@ -267,7 +267,7 @@ void setup() {
   fuel.updateFuelAfterTimer(); // updates the fuel boost appear after timer
 
   /** Plays Main Game Sound **/
-  //mainGameSound.loop(); // loops main game sound
+  mainGameSound.loop(); // loops main game sound
 
   /** Name Input **/
   textInitLayout(); // layout of the textbox
@@ -503,7 +503,7 @@ void playScreen() {
     rect(width-860, height-50, rectWidth, 30);
   } // player is alive
   else {
-    //death.play(); // plays death of player sound
+    death.play(); // plays death of player sound
     screens = "End"; // changes game state
   } // player has died
 
@@ -517,7 +517,7 @@ void playScreen() {
 
     image(enemyBullets[currentEnemyBullet], enemyBullet.enemyBulletPosX, enemyBullet.enemyBulletPosY); // places bullet image on screen (enemy)
 
-    //enemyLaserFire.play(); // plays enemy laser firing sound
+    enemyLaserFire.play(); // plays enemy laser firing sound
 
     enemyBullet.enemyBulletCollide(); // function to see if enemy's bullet collides with the player's spaceship
 
@@ -835,7 +835,7 @@ void mouseReleased() {
     if (millis() - playerShootTime > 1000) {
       if (enemy.enemyLifeLeft > 0 && player.playerLifeLeft > 0) {
         playerBullet.playerShootBullet(); // function to shoot the player's bullet
-        //playerBulletFire.play(); // plays player's bullet fire sound
+        playerBulletFire.play(); // plays player's bullet fire sound
       } // shoot only if player and enemy life left are greater than 0
     } // fires the player's bullet only after 1 second of the play button being clicked
   } // shoots the bullet, only with mouse press, and in one of the play screens (or chapters)
