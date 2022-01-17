@@ -1,1 +1,1 @@
-# The Fonts for the Game ✍️
+# Fonts for the Game ✍️
