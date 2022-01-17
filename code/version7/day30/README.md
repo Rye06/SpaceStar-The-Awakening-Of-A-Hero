@@ -2,7 +2,7 @@
 
 # What did I do?
 
-The Twenty-Eighth Day, I Completed-
+The Thirtieth Day, I Completed-
 
 Play Screen:
 
