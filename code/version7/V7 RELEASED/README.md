@@ -8,6 +8,7 @@ Game Over Screen:
 * High Score Time
 
 **Graphical Changes**
+
 **Verified The Whole Program**
 
 # Development Finished!
